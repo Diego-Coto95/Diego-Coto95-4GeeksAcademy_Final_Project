@@ -35,7 +35,7 @@ const Layout = () => {
 					</Route> 
                     <Route exact path="/characters/:theid">
                     <Menu />
-						<Characters />
+                    <Characters />
 					</Route>
                     <Route exact path="/films/:theid">
                     <Menu />
