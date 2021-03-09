@@ -8,7 +8,7 @@ import { Home } from "./pages/home";
 //import { descriptionCharacters } from "./pages/characters";
 //import { Characters } from "./pages/characters";
 //import { Films } from "./pages/films";
-//import { Places } from "./pages/places";
+import { Places } from "./pages/places";
 import injectContext from "./store/appContext";
 
 import { Menu } from "./component/navbar";
@@ -29,11 +29,11 @@ const Layout = () => {
 						<Home />
 					</Route>
 
-					{/* <Route exact path="/places/:theid">
-                    <Menu />
+					<Route exact path="/places/:theid">
+						<Menu />
 						<Places />
-					</Route> 
-                    <Route exact path="/characters/:theid">
+					</Route>
+					{/*<Route exact path="/characters/:theid">
                     <Menu />
 						<Characters />
 					</Route>
