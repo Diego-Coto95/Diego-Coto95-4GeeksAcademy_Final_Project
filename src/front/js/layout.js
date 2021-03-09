@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./pages/home";
@@ -18,7 +18,13 @@ import { Footer } from "./component/footer";
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
-	const basename = process.env.BASENAME || "";
+    const basename = process.env.BASENAME || "";
+    const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.getFilms();
+        actions.getCha();
+        actions.getLocations();
+	}, []);
 
 	return (
 		<div className="d-flex flex-column h-100">
@@ -30,16 +36,16 @@ const Layout = () => {
 					</Route>
 
 					{/* <Route exact path="/places/:theid">
-                    <Menu />
-						<Places />
+                        <Menu />
+						<Places data={store.locations}/>
 					</Route> 
                     <Route exact path="/characters/:theid">
                     <Menu />
-						<Characters />
+						<Characters  data={store.characteres}/>
 					</Route>
                     <Route exact path="/films/:theid">
                     <Menu />
-						<Films />
+						<Films data={store.films}/>
                     </Route>
                     <Route exact path="/descriptionCharacters/:theid">
                     <Menu />
