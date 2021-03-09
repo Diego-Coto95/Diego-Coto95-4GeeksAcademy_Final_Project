@@ -44,11 +44,7 @@ const Layout = () => {
 					</Route> 
                     <Route exact path="/characters/:theid">
                     <Menu />
-<<<<<<< HEAD
-                    <Characters />
-=======
 						<Characters  data={store.characteres}/>
->>>>>>> eceeb9ac627e29a2b24db43a90412ce7be114152
 					</Route>
                     <Route exact path="/films/:theid">
                     <Menu />
