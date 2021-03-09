@@ -1,13 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+//import { descriptionCharacters } from "./pages/descriptionCharacters";
+//import { descriptionPlaces } from "./pages/descriptionPlaces";
+//import { descriptionFilms } from "./pages/descriptionFilms";
+//import { descriptionCharacters } from "./pages/characters";
+//import { Characters } from "./pages/characters";
+//import { Films } from "./pages/films";
+//import { Places } from "./pages/places";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import { Menu } from "./component/navbar";
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -19,24 +23,42 @@ const Layout = () => {
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
-					<Footer />
-				</ScrollToTop>
+				<Switch>
+					<Route exact path="/">
+						<Menu />
+						<Home />
+					</Route>
+
+					{/* <Route exact path="/places/:theid">
+                    <Menu />
+						<Places />
+					</Route> 
+                    <Route exact path="/characters/:theid">
+                    <Menu />
+						<Characters />
+					</Route>
+                    <Route exact path="/films/:theid">
+                    <Menu />
+						<Films />
+                    </Route>
+                    <Route exact path="/descriptionCharacters/:theid">
+                    <Menu />
+						<descriptionCharacters />
+                    </Route>
+                    <Route exact path="/descriptionPlaces/:theid">
+                    <Menu />
+						<descriptionCharacters />
+                    </Route>  
+                    <Route exact path="/descriptionFilms/:theid">
+                    <Menu />
+						<descriptionCharacters />
+                    </Route>     */}
+
+					<Route>
+						<h1>Not found!</h1>
+					</Route>
+				</Switch>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
