@@ -15,13 +15,15 @@ export const Places = props => {
 				{props.data.map((element, index) => {
 					return (
 						<Card border="light" style={{ minWidth: "30rem", margin: "15px" }} key={index}>
-							<Card.Img
-								variant="top h-0"
-								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXT1nnJQyR9LRM-LUrNsuSCsOWWpYVEj-BYg&usqp=CAU"
-							/>
-							<Card.Body>
-								<Card.Title className="text-center">{element.name}</Card.Title>
-							</Card.Body>
+							<Link to={`/descriptionPlaces/${index}`}>
+								<Card.Img
+									variant="top h-0"
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXT1nnJQyR9LRM-LUrNsuSCsOWWpYVEj-BYg&usqp=CAU"
+								/>
+								<Card.Body>
+									<Card.Title className="text-center">{element.name}</Card.Title>
+								</Card.Body>
+							</Link>
 						</Card>
 					);
 				})}
