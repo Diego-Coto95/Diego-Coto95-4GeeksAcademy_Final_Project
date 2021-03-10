@@ -49,12 +49,12 @@ const Layout = () => {
 					{/*  <Route exact path="/films/:theid">
                     <Menu />
 						<Films data={store.films}/>
-                    </Route>
+                    </Route*/>
                     <Route exact path="/descriptionCharacters/:theid">
                     <Menu />
 						<Characters  data={store.characteres}/>
-					</Route>*/}
-					<Route exact path="/films/home">
+					</Route>
+					{/*<Route exact path="/films/home">
 						<Menu />
 						<Films data={store.films} />
 					</Route>
