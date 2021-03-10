@@ -4,9 +4,11 @@ import Carousel from "react-bootstrap/Carousel";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { AnimatePresence, motion } from "framer-motion";
-import { CardDeck, Card, Container } from "react-bootstrap";
+import { CardDeck, Card, Container, Jumbotron, Button } from "react-bootstrap";
 
-const nameMovie = "Kiki's Delivery Service";
+const kiki = "Kiki's Delivery Service";
+const jumboDescription =
+	"Ghibli's films always have beautiful locations, you can noticed the art in every single frame.";
 
 export const Logo = () => {
 	return <img src="https://www.closinglogos.com/images/e/eb/00d846981287934f316871d37f713733.jpeg" />;
@@ -29,7 +31,7 @@ export const Home = () => {
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Link to="">
+					<Link to="films/home">
 						<img
 							className="d-block w-100"
 							src="https://images3.alphacoders.com/245/thumb-1920-245067.jpg"
@@ -38,11 +40,11 @@ export const Home = () => {
 					</Link>
 
 					<Carousel.Caption>
-						<h3 style={{ color: "white" }}>{nameMovie}</h3>
+						<h3 style={{ color: "white" }}>{kiki}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<Link>
+					<Link to="films/home">
 						<img
 							className="d-block w-100"
 							src="https://www.whats-on-netflix.com/wp-content/uploads/2020/03/beginners-guide-to-studio-ghibli-movies-on-netflix.jpg"
@@ -51,7 +53,7 @@ export const Home = () => {
 					</Link>
 
 					<Carousel.Caption>
-						<h3 style={{ color: "black" }}>Here you can see all the movies.</h3>
+						<h3 style={{ color: "black" }} />
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
@@ -59,7 +61,7 @@ export const Home = () => {
 	);
 };
 
-export const Characters = () => {
+export const CharactersHome = () => {
 	return (
 		<Container fluid>
 			<h1 className="text-center mt-5 mb-5" style={{ color: "black" }}>
@@ -95,5 +97,20 @@ export const Characters = () => {
 				</Card>
 			</CardDeck>
 		</Container>
+	);
+};
+
+export const PeopleHome = () => {
+	return (
+		<Jumbotron>
+			<h1>Locations</h1>
+			<p>{jumboDescription}</p>
+			<img src="https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2020/01/22122627/Hassan-Rashid-on-Youtube-e1579674659229-1024x545.jpg" />
+			<p>
+				<Button className="mt-3" variant="primary">
+					Learn more
+				</Button>
+			</p>
+		</Jumbotron>
 	);
 };
