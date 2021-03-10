@@ -8,7 +8,7 @@ import { CardDeck, Card, Container, Jumbotron, Button } from "react-bootstrap";
 
 const kiki = "Kiki's Delivery Service";
 const jumboDescription =
-	"Ghibli's films always have beautiful locations, you can noticed the art in every single frame.";
+	"Ghibli's films always have beautiful locations, you can notice the art in every single frame.";
 
 export const Logo = () => {
 	return <img src="https://www.closinglogos.com/images/e/eb/00d846981287934f316871d37f713733.jpeg" />;
