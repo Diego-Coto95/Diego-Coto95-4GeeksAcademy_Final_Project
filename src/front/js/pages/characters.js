@@ -35,7 +35,7 @@ export const Characters = props => {
 									<ButtonToolbar
 										className="justify-content-between"
 										aria-label="Toolbar with Button groups">
-										<Link to={`/descriptionPeople/${index}`}>
+										<Link to={`/descriptionCharacters/${index}`}>
 											<Button variant="primary">Learn More</Button>
 										</Link>
 										<Link onClick={() => actions.addFavorite(people.name, "people")}>
