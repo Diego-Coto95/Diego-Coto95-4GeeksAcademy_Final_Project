@@ -5,10 +5,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Home } from "./pages/home";
 //import { descriptionCharacters } from "./pages/descriptionCharacters";
 //import { descriptionPlaces } from "./pages/descriptionPlaces";
-//import { descriptionFilms } from "./pages/descriptionFilms";
+import { DescriptionFilms } from "./pages/descriptionFilms";
 //import { descriptionCharacters } from "./pages/characters";
 //import { Characters } from "./pages/characters";
-//import { Films } from "./pages/films";
+import { Films } from "./pages/films";
 //import { Places } from "./pages/places";
 import injectContext from "./store/appContext";
 
@@ -41,6 +41,7 @@ const Layout = () => {
 					{/* <Route exact path="/places/:theid">
                         <Menu />
 						<Places data={store.locations}/>
+<<<<<<< HEAD
                      </Route> */}
 					<Route exact path="/characters/:theid">
 						<Menu />
@@ -51,17 +52,29 @@ const Layout = () => {
 						<Films data={store.films}/>
                     </Route>
                     <Route exact path="/descriptionCharacters/:theid">
+=======
+					</Route> 
+                    <Route exact path="/characters/:theid">
+                    <Menu />
+						<Characters  data={store.characteres}/>
+					</Route>*/}
+					<Route exact path="/films/home">
+						<Menu />
+						<Films data={store.films} />
+					</Route>
+					{/*<Route exact path="/descriptionCharacters/:theid">
+>>>>>>> f9387bbb1620697b95d4b64c34e7a6f1e9a6deb3
                     <Menu />
 						<descriptionCharacters />
                     </Route>
                     <Route exact path="/descriptionPlaces/:theid">
                     <Menu />
 						<descriptionCharacters />
-                    </Route>  
-                    <Route exact path="/descriptionFilms/:theid">
-                    <Menu />
-						<descriptionCharacters />
-                    </Route>     */}
+                    </Route>  */}
+					<Route exact path="/descriptionFilms/:theid">
+						<Menu />
+						<DescriptionFilms />
+					</Route>
 
 					<Route>
 						<h1>Not found!</h1>
