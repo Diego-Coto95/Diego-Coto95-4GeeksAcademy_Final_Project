@@ -21,9 +21,9 @@ export const Menu = () => {
 					</Nav.Link>
 
 					<NavDropdown title="Menu" id="basic-nav-dropdown" className="mt-2">
-						<NavDropdown.Item href="#action/3.1">Films</NavDropdown.Item>
-						<NavDropdown.Item href="#action/3.2">Characters</NavDropdown.Item>
-						<NavDropdown.Item href="#action/3.3">Locations</NavDropdown.Item>
+						<NavDropdown.Item href="/films/home">Films</NavDropdown.Item>
+						<NavDropdown.Item href="/characters/home">Characters</NavDropdown.Item>
+						<NavDropdown.Item href="/places/home">Locations</NavDropdown.Item>
 
 						<NavDropdown.Item href="#action/3.4">About</NavDropdown.Item>
 					</NavDropdown>
