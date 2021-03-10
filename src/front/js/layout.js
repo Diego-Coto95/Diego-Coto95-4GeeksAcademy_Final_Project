@@ -4,10 +4,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./pages/home";
 //import { descriptionCharacters } from "./pages/descriptionCharacters";
-//import { descriptionPlaces } from "./pages/descriptionPlaces";
+import { DescriptionPlaces } from "./pages/descriptionPlaces";
 import { DescriptionFilms } from "./pages/descriptionFilms";
 //import { descriptionCharacters } from "./pages/characters";
-//import { Characters } from "./pages/characters";
+import { Characters } from "./pages/characters";
 import { Films } from "./pages/films";
 import { Places } from "./pages/places";
 import injectContext from "./store/appContext";
@@ -38,10 +38,10 @@ const Layout = () => {
 						<Home />
 					</Route>
 
-					{/* <Route exact path="/places/:theid">
-                        <Menu />
-						<Places data={store.locations}/>
-                     </Route> */}
+					<Route exact path="/places/home">
+						<Menu />
+						<Places data={store.locations} />
+					</Route>
 					<Route exact path="/characters/:theid">
 						<Menu />
 						<Characters data={store.characteres} />
@@ -59,14 +59,13 @@ const Layout = () => {
 						<Films data={store.films} />
 					</Route>
 					{/*<Route exact path="/descriptionCharacters/:theid">
->>>>>>> f9387bbb1620697b95d4b64c34e7a6f1e9a6deb3
                     <Menu />
 						<descriptionCharacters />
-                    </Route>
-                    <Route exact path="/descriptionPlaces/:theid">
-                    <Menu />
-						<descriptionCharacters />
-                    </Route>  */}
+                    </Route>*/}
+					<Route exact path="/descriptionPlaces/:theid">
+						<Menu />
+						<DescriptionPlaces />
+					</Route>
 					<Route exact path="/descriptionFilms/:theid">
 						<Menu />
 						<DescriptionFilms />
