@@ -1,47 +1,62 @@
 import React, { useState, useContext } from "react";
+import { Card, Button, Col, ButtonToolbar } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/index.scss";
 
-export const Characters = () => {
+export const Characters = props => {
 	const { store, actions } = useContext(Context);
-	// const [searchItem, setSearch] = useState();
+	const [searchItem, setSearch] = useState();
 
 	return (
-		<div className="d-flex flex-row p-4" style={{ maxWidth: "950px", overflow: "auto" }}>
-			{store.peoples.map((people, i) => {
-				return (
-					<div className="card mb-2 " key={i} style={{ display: "flex", minWidth: "350px", margin: "10px" }}>
-						<img
-							//{props.img}
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRksHhic6_eKXB-XcWLxGc3_Qgz5g-1ccts5jbZ-vkeHBSk4Wb"
-							className="card-img-top"
-							alt="..."
-						/>
-						<div className="card-body">
-							<h5 className="card-title">{people.name}</h5>
-							<p className="card-text">
-								<strong>Nombre:</strong>
-								{people.name}
-							</p>
-							
-						<Link to={"/singleProPer/" + i}>
-								<span style={{ float: "left" }} className="btn btn-primary">
-									Learn More!
-								</span>
-						</Link>
-
-							<button
-								style={{ float: "right" }}
-								onClick={() => actions.addFavorite(people.name, "people")}
-								type="button"
-								className="btn btn-outline-danger">
-								<i className="far fa-heart" />
-							</button>
-						</div>
-					</div>
-				);
-			})}
+		<div className="container d-flex flex-column text-center">
+			<div className="Main mt-5 d-flex" style={{ overflowX: "scroll-down", width: "1100px", height: "480px" }}>
+				{props.data.map((people, index) => {
+					return (
+						<Col md={4} className="mt-1 mb-1" key={index}>
+							<Card>
+								<Card.Img
+									variant="top"
+									src="https://2.bp.blogspot.com/-OEI2_u2jVMg/U6NSJeEybNI/AAAAAAAA6f4/IDxjjg98MbI/s1600/cartel+1.jpg"
+								/>
+								<Card.Body>
+									<Card.Title className="text-center" width="200px" height="300px">
+										{people.name}
+									</Card.Title>
+									<Card.Text>
+										<tr>
+											<td>Genero: {people.gender} </td>
+										</tr>
+										<tr>
+											<td>Age: {people.age} </td>
+										</tr>
+									</Card.Text>
+								</Card.Body>
+								<Card.Footer>
+									<ButtonToolbar
+										className="justify-content-between"
+										aria-label="Toolbar with Button groups">
+										<Link to={`/descriptionPeople/${index}`}>
+											<Button variant="primary">Learn More</Button>
+										</Link>
+										<Link onClick={() => actions.addFavorite(people.name, "people")}>
+											<Button variant="outline-warning">
+												<i className="far fa-heart" />
+											</Button>
+										</Link>
+									</ButtonToolbar>
+								</Card.Footer>
+							</Card>
+						</Col>
+					);
+				})}
+			</div>
 		</div>
 	);
+};
+
+Characters.propTypes = {
+	info: PropTypes.string,
+	data: PropTypes.string
 };
