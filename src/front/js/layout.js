@@ -9,7 +9,7 @@ import { DescriptionFilms } from "./pages/descriptionFilms";
 //import { descriptionCharacters } from "./pages/characters";
 //import { Characters } from "./pages/characters";
 import { Films } from "./pages/films";
-//import { Places } from "./pages/places";
+import { Places } from "./pages/places";
 import injectContext from "./store/appContext";
 
 import { Menu } from "./component/navbar";
@@ -38,11 +38,11 @@ const Layout = () => {
 						<Home />
 					</Route>
 
-					{/* <Route exact path="/places/:theid">
-                        <Menu />
-						<Places data={store.locations}/>
-					</Route> 
-                    <Route exact path="/characters/:theid">
+					<Route exact path="/places/:theid">
+						<Menu />
+						<Places data={store.locations} />
+					</Route>
+					{/*<Route exact path="/characters/:theid">
                     <Menu />
 						<Characters  data={store.characteres}/>
 					</Route>*/}
