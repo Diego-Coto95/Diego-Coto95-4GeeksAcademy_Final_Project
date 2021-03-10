@@ -2,7 +2,7 @@ import React, { useState, useCallback, useContext } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const nameMovie = "Kiki's Delivery Service";
 
@@ -12,6 +12,9 @@ export const Logo = () => {
 
 export const Home = () => {
 	return (
+        <motion.div>
+
+        
 		<Carousel>
 			<Carousel.Item>
 				<img className="d-block w-100" src="https://wallpapercave.com/wp/wp4603979.jpg" alt="First slide" />
@@ -42,5 +45,6 @@ export const Home = () => {
 				</Carousel.Caption>
 			</Carousel.Item>
 		</Carousel>
+        </motion.div>
 	);
 };
