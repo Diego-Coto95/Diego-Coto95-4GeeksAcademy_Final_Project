@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "./store/appContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Home } from "./pages/home";
+import { Home, Logo, Characters } from "./pages/home";
 //import { descriptionCharacters } from "./pages/descriptionCharacters";
 //import { descriptionPlaces } from "./pages/descriptionPlaces";
 import { DescriptionFilms } from "./pages/descriptionFilms";
@@ -14,7 +14,7 @@ import injectContext from "./store/appContext";
 
 import { Menu } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Logo } from "./pages/home";
+
 import { AnimatePresence } from "framer-motion";
 
 //create your first component
@@ -38,6 +38,7 @@ const Layout = () => {
 							<Menu />
 							<Logo />
 							<Home />
+							<Characters />
 						</Route>
 
 						{/* <Route exact path="/places/:theid">
@@ -48,11 +49,11 @@ const Layout = () => {
                     <Menu />
 						<Characters  data={store.characteres}/>
 					</Route>*/}
-					<Route exact path="/films/home">
-						<Menu />
-						<Films data={store.films} />
-					</Route>
-					{/*<Route exact path="/descriptionCharacters/:theid">
+						<Route exact path="/films/home">
+							<Menu />
+							<Films data={store.films} />
+						</Route>
+						{/*<Route exact path="/descriptionCharacters/:theid">
                     <Menu />
 						<descriptionCharacters />
                     </Route>
@@ -60,10 +61,10 @@ const Layout = () => {
                     <Menu />
 						<descriptionCharacters />
                     </Route>  */}
-					<Route exact path="/descriptionFilms/:theid">
-						<Menu />
-						<DescriptionFilms />
-					</Route>
+						<Route exact path="/descriptionFilms/:theid">
+							<Menu />
+							<DescriptionFilms />
+						</Route>
 
 						<Route>
 							<h1>Not found!</h1>
