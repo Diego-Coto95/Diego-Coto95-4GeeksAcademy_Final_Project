@@ -7,7 +7,7 @@ import { Home } from "./pages/home";
 //import { descriptionPlaces } from "./pages/descriptionPlaces";
 import { DescriptionFilms } from "./pages/descriptionFilms";
 //import { descriptionCharacters } from "./pages/characters";
-//import { Characters } from "./pages/characters";
+import { Characters } from "./pages/characters";
 import { Films } from "./pages/films";
 import { Places } from "./pages/places";
 import injectContext from "./store/appContext";
