@@ -2,11 +2,10 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "./store/appContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Home } from "./pages/home";
-//import { descriptionCharacters } from "./pages/descriptionCharacters";
+import { Home, Logo, CharactersHome, PeopleHome } from "./pages/home";
+import { DescriptionCharacters } from "./pages/descriptionCharacters";
 import { DescriptionPlaces } from "./pages/descriptionPlaces";
 import { DescriptionFilms } from "./pages/descriptionFilms";
-//import { descriptionCharacters } from "./pages/characters";
 import { Characters } from "./pages/characters";
 import { Films } from "./pages/films";
 import { Places } from "./pages/places";
@@ -14,7 +13,8 @@ import injectContext from "./store/appContext";
 
 import { Menu } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Logo } from "./pages/home";
+
+import { AnimatePresence } from "framer-motion";
 
 //create your first component
 const Layout = () => {
@@ -31,50 +31,51 @@ const Layout = () => {
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
-				<Switch>
-					<Route exact path="/">
-						<Menu />
-						<Logo />
-						<Home />
-					</Route>
+				<AnimatePresence>
+					<Switch>
+						<Route exact path="/">
+							<Menu />
+							<Logo />
+							<Home />
+							<CharactersHome />
+							<PeopleHome />
+						</Route>
 
-					<Route exact path="/places/home">
-						<Menu />
-						<Places data={store.locations} />
-					</Route>
-					<Route exact path="/characters/:theid">
-						<Menu />
-						<Characters data={store.characteres} />
-					</Route>
-					{/*  <Route exact path="/films/:theid">
-                    <Menu />
-						<Films data={store.films}/>
-                    </Route>
-                    <Route exact path="/descriptionCharacters/:theid">
-                    <Menu />
-						<Characters  data={store.characteres}/>
-					</Route>*/}
-					<Route exact path="/films/home">
-						<Menu />
-						<Films data={store.films} />
-					</Route>
-					{/*<Route exact path="/descriptionCharacters/:theid">
-                    <Menu />
-						<descriptionCharacters />
-                    </Route>*/}
-					<Route exact path="/descriptionPlaces/:theid">
-						<Menu />
-						<DescriptionPlaces />
-					</Route>
-					<Route exact path="/descriptionFilms/:theid">
-						<Menu />
-						<DescriptionFilms />
-					</Route>
+						<Route exact path="/places/home">
+							<Menu />
+							<Places data={store.locations} />
+						</Route>
 
-					<Route>
-						<h1>Not found!</h1>
-					</Route>
-				</Switch>
+						<Route exact path="/characters/home">
+							<Menu />
+							<Characters data={store.characteres} />
+						</Route>
+
+						<Route exact path="/films/home">
+							<Menu />
+							<Films data={store.films} />
+						</Route>
+
+						<Route exact path="/descriptionCharacters/:theid">
+							<Menu />
+							<DescriptionCharacters />
+						</Route>
+
+						<Route exact path="/descriptionPlaces/:theid">
+							<Menu />
+							<DescriptionPlaces />
+						</Route>
+
+						<Route exact path="/descriptionFilms/:theid">
+							<Menu />
+							<DescriptionFilms />
+						</Route>
+
+						<Route>
+							<h1>Not found!</h1>
+						</Route>
+					</Switch>
+				</AnimatePresence>
 				<Footer />
 			</BrowserRouter>
 		</div>
