@@ -38,11 +38,19 @@ const Layout = () => {
 						<Home />
 					</Route>
 
-					<Route exact path="/places/:theid">
+					{/* <Route exact path="/places/:theid">
+                        <Menu />
+						<Places data={store.locations}/>
+                     </Route> */}
+					<Route exact path="/characters/:theid">
 						<Menu />
-						<Places data={store.locations} />
+						<Characters data={store.characteres} />
 					</Route>
-					{/*<Route exact path="/characters/:theid">
+					{/*  <Route exact path="/films/:theid">
+                    <Menu />
+						<Films data={store.films}/>
+                    </Route>
+                    <Route exact path="/descriptionCharacters/:theid">
                     <Menu />
 						<Characters  data={store.characteres}/>
 					</Route>*/}
@@ -51,6 +59,7 @@ const Layout = () => {
 						<Films data={store.films} />
 					</Route>
 					{/*<Route exact path="/descriptionCharacters/:theid">
+>>>>>>> f9387bbb1620697b95d4b64c34e7a6f1e9a6deb3
                     <Menu />
 						<descriptionCharacters />
                     </Route>
