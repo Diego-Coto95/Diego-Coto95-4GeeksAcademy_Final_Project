@@ -15,6 +15,7 @@ import injectContext from "./store/appContext";
 import { Menu } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Logo } from "./pages/home";
+import { AnimatePresence } from "framer-motion";
 
 //create your first component
 const Layout = () => {
@@ -31,14 +32,15 @@ const Layout = () => {
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
-				<Switch>
-					<Route exact path="/">
-						<Menu />
-						<Logo />
-						<Home />
-					</Route>
+				<AnimatePresence>
+					<Switch>
+						<Route exact path="/">
+							<Menu />
+							<Logo />
+							<Home />
+						</Route>
 
-					{/* <Route exact path="/places/:theid">
+						{/* <Route exact path="/places/:theid">
                         <Menu />
 						<Places data={store.locations}/>
 					</Route> 
@@ -63,10 +65,11 @@ const Layout = () => {
 						<descriptionCharacters />
                     </Route>     */}
 
-					<Route>
-						<h1>Not found!</h1>
-					</Route>
-				</Switch>
+						<Route>
+							<h1>Not found!</h1>
+						</Route>
+					</Switch>
+				</AnimatePresence>
 				<Footer />
 			</BrowserRouter>
 		</div>
