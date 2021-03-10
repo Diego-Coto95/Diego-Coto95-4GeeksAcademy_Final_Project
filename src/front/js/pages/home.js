@@ -1,49 +1,99 @@
-import React, { useContext } from "react";
+import React, { useState, useCallback, useContext } from "react";
+import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
+import { AnimatePresence, motion } from "framer-motion";
+import { CardDeck, Card, Container } from "react-bootstrap";
+
+const nameMovie = "Kiki's Delivery Service";
 
 export const Logo = () => {
 	return <img src="https://www.closinglogos.com/images/e/eb/00d846981287934f316871d37f713733.jpeg" />;
 };
 
 export const Home = () => {
-	const { store, actions } = useContext(Context);
-
 	return (
-		<Carousel>
-			<Carousel.Item>
-				<img
-					className="d-block w-100"
-					src="https://variety.com/wp-content/uploads/2017/06/tortoro.jpg"
-					alt="First slide"
-				/>
-				<Carousel.Caption>
-					<h3>My Neighbor Totoro</h3>
-				</Carousel.Caption>
-			</Carousel.Item>
-			<Carousel.Item>
-				<img
-					className="d-block w-100"
-					src="https://www.indiewire.com/wp-content/uploads/2020/05/100775723_a07e6660-7083-40d3-8a4b-fbed68d97aab.jpg"
-					alt="Second slide"
-				/>
+		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+			<Carousel>
+				<Carousel.Item>
+					<Link to="/films/home">
+						<img
+							className="d-block w-100"
+							src="https://wallpapercave.com/wp/wp4603979.jpg"
+							alt="First slide"
+						/>
+					</Link>
+					<Carousel.Caption>
+						<h3 style={{ color: "black" }}>My Neighbor Totoro</h3>
+					</Carousel.Caption>
+				</Carousel.Item>
+				<Carousel.Item>
+					<Link to="">
+						<img
+							className="d-block w-100"
+							src="https://images3.alphacoders.com/245/thumb-1920-245067.jpg"
+							alt="Second slide"
+						/>
+					</Link>
 
-				<Carousel.Caption>
-					<h3>Kikis Delivery Service</h3>
-				</Carousel.Caption>
-			</Carousel.Item>
-			<Carousel.Item>
-				<img
-					className="d-block w-100"
-					src="https://lh3.googleusercontent.com/proxy/KJ7MUhuoKoxqVA87WhAoHwYkaKOBKhHMl7uiZ9u5S_5v5qfj4ynJyWtisVtSiSVSWLID3lk3lpoPqWGd3i78wtvCwaWOUC-geo1D67pwmCHXCS94lWEUWLIJ7txpO9x9qw"
-					alt="Third slide"
-				/>
+					<Carousel.Caption>
+						<h3 style={{ color: "white" }}>{nameMovie}</h3>
+					</Carousel.Caption>
+				</Carousel.Item>
+				<Carousel.Item>
+					<Link>
+						<img
+							className="d-block w-100"
+							src="https://www.whats-on-netflix.com/wp-content/uploads/2020/03/beginners-guide-to-studio-ghibli-movies-on-netflix.jpg"
+							alt="Third slide"
+						/>
+					</Link>
 
-				<Carousel.Caption>
-					<h3>Click here to see all the movies.</h3>
-				</Carousel.Caption>
-			</Carousel.Item>
-		</Carousel>
+					<Carousel.Caption>
+						<h3 style={{ color: "black" }}>Here you can see all the movies.</h3>
+					</Carousel.Caption>
+				</Carousel.Item>
+			</Carousel>
+		</motion.div>
+	);
+};
+
+export const Characters = () => {
+	return (
+		<Container fluid>
+			<h1 className="text-center mt-5 mb-5" style={{ color: "black" }}>
+				Characters
+			</h1>
+			<CardDeck>
+				<Card>
+					<Card.Img
+						variant="top"
+						src="https://i.pinimg.com/736x/30/58/67/30586724bbe6fec680680681c7998f20.jpg"
+					/>
+					<Card.Body>
+						<Card.Title className="text-center">San</Card.Title>
+					</Card.Body>
+				</Card>
+				<Card>
+					<Card.Img
+						variant="top"
+						src="https://pbs.twimg.com/profile_images/947361744694988800/0HqUioB8_400x400.jpg"
+					/>
+					<Card.Body>
+						<Card.Title className="text-center">Calcifer</Card.Title>
+					</Card.Body>
+				</Card>
+				<Card>
+					<Card.Img
+						variant="top"
+						src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mi-vecino-totoro-taquilla-china-2-1545059767.jpg?crop=0.541xw:1.00xh;0.262xw,0&resize=640:*"
+					/>
+					<Card.Body>
+						<Card.Title className="text-center">Totoro</Card.Title>
+					</Card.Body>
+				</Card>
+			</CardDeck>
+		</Container>
 	);
 };
