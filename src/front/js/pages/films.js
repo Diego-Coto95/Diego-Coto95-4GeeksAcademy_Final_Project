@@ -7,7 +7,6 @@ import { Context } from "../store/appContext";
 
 export const Films = props => {
 	const { store, actions } = useContext(Context);
-	const [searchItem, setSearch] = useState();
 
 	return (
 		<Container className="container" fluid>

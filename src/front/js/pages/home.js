@@ -4,7 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import { AnimatePresence, motion } from "framer-motion";
-import { CardDeck, Card, Container } from "react-bootstrap";
+import { CardDeck, Card, Container, Jumbotron, Button } from "react-bootstrap";
 
 const nameMovie = "Kiki's Delivery Service";
 
@@ -122,5 +122,20 @@ export const CharactersHome = () => {
 				</Card>
 			</CardDeck>
 		</Container>
+	);
+};
+
+export const PeopleHome = () => {
+	return (
+		<Jumbotron>
+			<h1>Locations</h1>
+			<p>Ghiblis films always have beuatiful locationes, you can noticed the art in every single frame.</p>
+			<img src="https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2020/01/22122627/Hassan-Rashid-on-Youtube-e1579674659229-1024x545.jpg" />
+			<p>
+				<Button className="mt-3" variant="primary">
+					Learn more
+				</Button>
+			</p>
+		</Jumbotron>
 	);
 };

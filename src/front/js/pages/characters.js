@@ -6,11 +6,10 @@ import { Context } from "../store/appContext";
 
 export const Characters = props => {
 	const { store, actions } = useContext(Context);
-	const [searchItem, setSearch] = useState();
 
 	return (
 		<div className="container  text-center" style={{ overflowX: "scroll-down", width: "1100px", height: "480px" }}>
-			<div className="conteiner d-flex flex-wrap">
+			<div className="container d-flex flex-wrap">
 				{props.data.map((people, index) => {
 					return (
 						<Col md={4} className="mt-1 mb-1" key={index}>
@@ -55,6 +54,5 @@ export const Characters = props => {
 };
 
 Characters.propTypes = {
-	info: PropTypes.string,
-	data: PropTypes.string
+	data: PropTypes.any
 };

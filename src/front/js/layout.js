@@ -2,11 +2,10 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "./store/appContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Home, Logo, CharactersHome } from "./pages/home";
-//import { descriptionCharacters } from "./pages/descriptionCharacters";
-//import { descriptionPlaces } from "./pages/descriptionPlaces";
+import { Home, Logo, CharactersHome, PeopleHome } from "./pages/home";
+import { DescriptionCharacters } from "./pages/descriptionCharacters";
+import { DescriptionPlaces } from "./pages/descriptionPlaces";
 import { DescriptionFilms } from "./pages/descriptionFilms";
-import { descriptionCharacters } from "./pages/characters";
 import { Characters } from "./pages/characters";
 import { Films } from "./pages/films";
 import { Places } from "./pages/places";
@@ -38,48 +37,35 @@ const Layout = () => {
 							<Menu />
 							<Logo />
 							<Home />
-							<CharactersHome />
+							<Characters />
+							<PeopleHome />
 						</Route>
 
-						{/* <Route exact path="/places/:theid">
-                        <Menu />
-						<Places data={store.locations}/>
-                     </Route> */}
-						<Route exact path="/characters/:theid">
+						<Route exact path="/places/home">
+							<Menu />
+							<Places data={store.locations} />
+						</Route>
+
+						<Route exact path="/characters/home">
 							<Menu />
 							<Characters data={store.characteres} />
 						</Route>
-						{
-							/*  <Route exact path="/films/:theid">
-                    <Menu />
-						<Films data={store.films}/>
-                    </Route*/
-							<Route exact path="/descriptionCharacters/:theid">
-								<Menu />
-								<Characters data={store.characteres} />
-							</Route>
-						}
+
 						<Route exact path="/films/home">
 							<Menu />
 							<Films data={store.films} />
 						</Route>
-						{/*<Route exact path="/descriptionCharacters/:theid">
-=======
-					</Route>
-					{/*<Route exact path="/films/home">
-						<Menu />
-						<Films data={store.films} />
-					</Route>
-					{/*<Route exact path="/descriptionCharacters/:theid">
->>>>>>> f9387bbb1620697b95d4b64c34e7a6f1e9a6deb3
->>>>>>> e8d55b5bce3d4dc875be1a55ede1e3c3e41d29c5
-                    <Menu />
-						<descriptionCharacters />
-                    </Route>
-                    <Route exact path="/descriptionPlaces/:theid">
-                    <Menu />
-						<descriptionCharacters />
-                    </Route>  */}
+
+						<Route exact path="/descriptionCharacters/:theid">
+							<Menu />
+							<DescriptionCharacters />
+						</Route>
+
+						<Route exact path="/descriptionPlaces/:theid">
+							<Menu />
+							<DescriptionPlaces />
+						</Route>
+
 						<Route exact path="/descriptionFilms/:theid">
 							<Menu />
 							<DescriptionFilms />
