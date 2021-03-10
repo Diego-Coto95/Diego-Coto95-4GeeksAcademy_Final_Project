@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "./store/appContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Context } from "./store/appContext";
 
 import { Home } from "./pages/home";
 //import { descriptionCharacters } from "./pages/descriptionCharacters";
