@@ -37,27 +37,16 @@ const Layout = () => {
 							<Menu />
 							<Logo />
 							<Home />
-<<<<<<< HEAD
-							<Characters />
-						</Route>
-
-						<Route exact path="/places/:theid">
-=======
 							<CharactersHome />
 							<PeopleHome />
 						</Route>
 
 						<Route exact path="/places/home">
->>>>>>> ad420decf88b572f76dc0d09dc3564d008a46ad8
 							<Menu />
 							<Places data={store.locations} />
 						</Route>
 
-<<<<<<< HEAD
-						<Route exact path="/characters/:theid">
-=======
 						<Route exact path="/characters/home">
->>>>>>> ad420decf88b572f76dc0d09dc3564d008a46ad8
 							<Menu />
 							<Characters data={store.characteres} />
 						</Route>
