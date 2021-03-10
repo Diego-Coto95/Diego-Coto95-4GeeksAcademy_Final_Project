@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Context } from "./store/appContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Context } from "./store/appContext";
 
@@ -14,6 +15,7 @@ import injectContext from "./store/appContext";
 
 import { Menu } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Logo } from "./pages/home";
 
 //create your first component
 const Layout = () => {
@@ -33,6 +35,7 @@ const Layout = () => {
 				<Switch>
 					<Route exact path="/">
 						<Menu />
+						<Logo />
 						<Home />
 					</Route>
 
