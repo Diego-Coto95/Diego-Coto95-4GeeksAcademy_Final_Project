@@ -6,8 +6,8 @@ import { Home } from "./pages/home";
 //import { descriptionCharacters } from "./pages/descriptionCharacters";
 //import { descriptionPlaces } from "./pages/descriptionPlaces";
 import { DescriptionFilms } from "./pages/descriptionFilms";
-//import { descriptionCharacters } from "./pages/characters";
-//import { Characters } from "./pages/characters";
+import { descriptionCharacters } from "./pages/characters";
+import { Characters } from "./pages/characters";
 import { Films } from "./pages/films";
 import { Places } from "./pages/places";
 import injectContext from "./store/appContext";
@@ -49,12 +49,12 @@ const Layout = () => {
 					{/*  <Route exact path="/films/:theid">
                     <Menu />
 						<Films data={store.films}/>
-                    </Route>
+                    </Route*/>
                     <Route exact path="/descriptionCharacters/:theid">
                     <Menu />
 						<Characters  data={store.characteres}/>
-					</Route>*/}
-					<Route exact path="/films/home">
+					</Route>
+					{/*<Route exact path="/films/home">
 						<Menu />
 						<Films data={store.films} />
 					</Route>
