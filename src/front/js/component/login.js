@@ -28,9 +28,11 @@ export const Login = () => {
 									</Button>
 								</div>
 								<div className="text-center mt-2">
-									<Button variant="success" type="submit" onClick={() => Register()}>
+									{/* <Button variant="success" type="submit" onClick={() => callRegister()}>
 										Sign up
-									</Button>
+									</Button> */}
+
+									<Register variant="success" />
 								</div>
 							</Form>
 						</Container>
