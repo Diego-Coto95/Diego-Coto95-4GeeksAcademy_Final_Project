@@ -10,7 +10,7 @@ export const Register = () => {
 
 	return (
 		<>
-			<Button variant="primary" onClick={handleShow}>
+			<Button variant="success" onClick={handleShow}>
 				Sign up
 			</Button>
 			<Modal show={show} onHide={handleClose}>
