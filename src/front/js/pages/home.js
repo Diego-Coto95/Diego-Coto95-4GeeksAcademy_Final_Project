@@ -39,40 +39,29 @@ export const Home = () => {
 					<Carousel.Item>
 						<Link to="/films/home">
 							<img
-								className="d-block w-100"
+								className="kiki d-block w-100"
 								src="https://wallpapercave.com/wp/wp4603979.jpg"
 								alt="First slide"
 							/>
 						</Link>
-						<Carousel.Caption>
-							<h3 style={{ color: "black" }}>My Neighbor Totoro</h3>
-						</Carousel.Caption>
 					</Carousel.Item>
 					<Carousel.Item>
 						<Link to="films/home">
 							<img
-								className="d-block w-100"
+								className="kiki d-block w-100"
 								src="https://images3.alphacoders.com/245/thumb-1920-245067.jpg"
 								alt="Second slide"
 							/>
 						</Link>
-
-						<Carousel.Caption>
-							<h3 style={{ color: "white" }}>{kiki}</h3>
-						</Carousel.Caption>
 					</Carousel.Item>
 					<Carousel.Item>
 						<Link to="films/home">
 							<img
-								className="d-block w-100"
+								className="kiki d-block w-100"
 								src="https://www.whats-on-netflix.com/wp-content/uploads/2020/03/beginners-guide-to-studio-ghibli-movies-on-netflix.jpg"
 								alt="Third slide"
 							/>
 						</Link>
-
-						<Carousel.Caption>
-							<h3 style={{ color: "black" }} />
-						</Carousel.Caption>
 					</Carousel.Item>
 				</Carousel>
 			</motion.div>
@@ -83,7 +72,9 @@ export const Home = () => {
 export const CharactersHome = () => {
 	return (
 		<div className="text-center mt-2">
-			<h1 className="animate__animated animate__backInDown text-center mt-4 mb-4" style={{ color: "black" }}>
+			<h1
+				className="people animate__animated animate__backInDown text-center mt-4 mb-4"
+				style={{ color: "black" }}>
 				Characters
 			</h1>
 			<CardDeck>
@@ -153,7 +144,7 @@ export const PeopleHome = () => {
 				<p>
 					<Link to="/places/home">
 						<Button className="mt-3" variant="primary">
-							Learn more
+							Learn <img src="" /> more
 						</Button>
 					</Link>
 				</p>

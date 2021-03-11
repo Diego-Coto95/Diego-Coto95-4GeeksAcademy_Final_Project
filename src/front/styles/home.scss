@@ -1,5 +1,22 @@
 body{
-    background: lightcyan;
-    
-   font-family: 'Lora', serif;
+    background: rgb(139,139,139);
+background: radial-gradient(circle, rgba(139,139,139,1) 50%, rgba(81,93,107,1) 100%);
+   font-family: 'Roboto', sans-serif;
+}
+
+.kiki{
+    width: 1920px;
+    height: 1080px;
+    object-fit: cover;
+}
+@media only screen and (max-width: 600px){
+    .kiki{
+         width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+}
+.people{
+    font-weight: 900;
+    text-decoration: underline;
 }
