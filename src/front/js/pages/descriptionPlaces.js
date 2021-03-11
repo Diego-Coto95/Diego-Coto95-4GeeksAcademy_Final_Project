@@ -58,9 +58,9 @@ export const DescriptionPlaces = () => {
 					</Col>
 				</Row>
 				<hr className="border border-bottom-0.5" />
-				<div className="text-light">
+				<div className="text-dark">
 					<Table responsive>
-						<thead className="text-white">
+						<thead className="text-dark">
 							<tr>
 								<th>climate</th>
 								<th>Terrain</th>
@@ -68,7 +68,7 @@ export const DescriptionPlaces = () => {
 							</tr>
 						</thead>
 						<tbody>
-							<tr className="text-white">
+							<tr className="text-dark">
 								<td>{element.climate}</td>
 								<td>{element.terrain}</td>
 								<td>{element.surface_water}</td>
