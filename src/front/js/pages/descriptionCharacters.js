@@ -31,15 +31,25 @@ export const DescriptionCharacters = () => {
 							<Card border="light" style={{ width: "40rem" }}>
 								<div className="text-center">
 									<Card.Header>
-										<strong>{element.original_title}</strong>
+										<strong>{element.name}</strong>
 									</Card.Header>
 								</div>
 								<Card.Body>
 									<div className="text-center">
-										<Card.Title>{element.title}</Card.Title>
+										<Card.Title>Temática y estética</Card.Title>
 									</div>
 									<Card.Text>
-										<strong>{element.original_title_romanised}</strong>, {element.description}
+										<strong>
+											Es claramente visible como las películas del estudio suelen girar alrededor
+											de una estética y temática muy concreta . Aparte de su estética de dibujo
+											con uso de colores vivos y animados; se detecta como la mayoría de las
+											producciones se centran en un seguido de temas sobre los cuales el mismo
+											Miyazaki ha confirmado su interés. Por ejemplo, aparece de forma recurrente
+											el tema de crecer o madurar, ya que muchos de sus protagonistas se ven
+											obligados a reflexionar o luchar contra las situaciones en las que se
+											encuentran viéndose obligados a trabajar o a lidiar con responsabilidades de
+											gran peso.
+										</strong>
 									</Card.Text>
 								</Card.Body>
 							</Card>
@@ -48,24 +58,26 @@ export const DescriptionCharacters = () => {
 					</Col>
 				</Row>
 				<hr className="border border-bottom-0.5" />
-				<div className="text-light">
+				<div className="text-dark">
 					<Table responsive>
-						<thead className="text-white">
+						<thead className="text-dark">
 							<tr>
-								<th>Director</th>
-								<th>Producer</th>
-								<th>Date</th>
-								<th>Duration</th>
-								<th>Score</th>
+								<th>Name</th>
+								<th>Gender</th>
+								<th>Age</th>
+								<th>Eye Color</th>
+								<th>Hair Color</th>
+								<th>Films</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr className="text-white">
-								<td>{element.director}</td>
-								<td>{element.producer}</td>
-								<td>{element.release_date}</td>
-								<td>{element.running_time} m</td>
-								<td>{element.rt_score}</td>
+							<tr className="text-dark">
+								<td>{element.name}</td>
+								<td>{element.gender}</td>
+								<td>{element.age}</td>
+								<td>{element.eye_color}</td>
+								<td>{element.hair_color}</td>
+								<td>{element.films}</td>
 							</tr>
 						</tbody>
 					</Table>
@@ -77,8 +89,8 @@ export const DescriptionCharacters = () => {
 					</InputGroup>
 				</div>
 				<div className="col text-center mt-5">
-					<Link to="/characters/home">
-						<button className="btn btn-primary">Back Films</button>
+					<Link to="/places/home">
+						<button className="btn btn-primary">Back Places</button>
 					</Link>
 				</div>
 			</Container>
