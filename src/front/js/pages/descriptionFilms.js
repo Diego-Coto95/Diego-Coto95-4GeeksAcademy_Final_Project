@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "../../styles/index.scss";
 import { Link } from "react-router-dom";
-import { Card, Container, Table, CardImg, Button, Image, Col, Row, InputGroup, FormControl } from "react-bootstrap";
+import { Card, Container, Table, CardImg, Button, Image, Col, Row, InputGroup, Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
@@ -11,7 +11,6 @@ export const DescriptionFilms = () => {
 	const element = store.films[params.theid];
 
 	return (
-		//<div className="mt-5 text-center">
 		<Container className="container mt-5" fluid>
 			<Row>
 				<Col xs={6} md={5}>
@@ -50,7 +49,7 @@ export const DescriptionFilms = () => {
 			<hr className="border border-bottom-0.5" />
 			<div className="text-light">
 				<Table responsive>
-					<thead className="text-white">
+					<thead className="text-dark">
 						<tr>
 							<th>Director</th>
 							<th>Producer</th>
@@ -60,7 +59,7 @@ export const DescriptionFilms = () => {
 						</tr>
 					</thead>
 					<tbody>
-						<tr className="text-white">
+						<tr className="text-dark">
 							<td>{element.director}</td>
 							<td>{element.producer}</td>
 							<td>{element.release_date}</td>
@@ -71,10 +70,9 @@ export const DescriptionFilms = () => {
 				</Table>
 			</div>
 			<div>
-				<InputGroup className="col text-center w-50">
-					<InputGroup.Prepend />
-					<FormControl as="textarea" aria-label="With textarea" placeholder="Add some comments" />
-				</InputGroup>
+				<Form.Group controlId="exampleForm.ControlTextarea1 text-center">
+					<Form.Control as="textarea" rows={4} placeholder="Add some comments" />
+				</Form.Group>
 			</div>
 			<div className="col text-center mt-5">
 				<Link to="/films/home">
@@ -82,6 +80,5 @@ export const DescriptionFilms = () => {
 				</Link>
 			</div>
 		</Container>
-		//</div>
 	);
 };

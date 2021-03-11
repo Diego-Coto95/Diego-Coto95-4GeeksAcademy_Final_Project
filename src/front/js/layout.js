@@ -12,6 +12,7 @@ import { Places } from "./pages/places";
 import injectContext from "./store/appContext";
 
 import { Menu } from "./component/navbar";
+import { Login } from "./component/login";
 import { Footer } from "./component/footer";
 
 import { AnimatePresence } from "framer-motion";
@@ -39,36 +40,48 @@ const Layout = () => {
 							<Home />
 							<CharactersHome />
 							<PeopleHome />
+							<Footer />
+						</Route>
+
+						<Route exact path="/login/home">
+							<Menu />
+							<Login />
 						</Route>
 
 						<Route exact path="/places/home">
 							<Menu />
 							<Places data={store.locations} />
+							<Footer />
 						</Route>
 
 						<Route exact path="/characters/home">
 							<Menu />
 							<Characters data={store.characteres} />
+							<Footer />
 						</Route>
 
 						<Route exact path="/films/home">
 							<Menu />
 							<Films data={store.films} />
+							<Footer />
 						</Route>
 
 						<Route exact path="/descriptionCharacters/:theid">
 							<Menu />
 							<DescriptionCharacters />
+							<Footer />
 						</Route>
 
 						<Route exact path="/descriptionPlaces/:theid">
 							<Menu />
 							<DescriptionPlaces />
+							<Footer />
 						</Route>
 
 						<Route exact path="/descriptionFilms/:theid">
 							<Menu />
 							<DescriptionFilms />
+							<Footer />
 						</Route>
 
 						<Route>
@@ -76,7 +89,6 @@ const Layout = () => {
 						</Route>
 					</Switch>
 				</AnimatePresence>
-				<Footer />
 			</BrowserRouter>
 		</div>
 	);
