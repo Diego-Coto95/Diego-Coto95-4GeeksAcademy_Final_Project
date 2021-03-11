@@ -36,19 +36,18 @@ export const DescriptionPlaces = () => {
 								</div>
 								<Card.Body>
 									<div className="text-center">
-										<Card.Title>Temática y estética</Card.Title>
+										<Card.Title>Theme and aesthetics</Card.Title>
 									</div>
 									<Card.Text>
 										<strong>
-											Es claramente visible como las películas del estudio suelen girar alrededor
-											de una estética y temática muy concreta . Aparte de su estética de dibujo
-											con uso de colores vivos y animados; se detecta como la mayoría de las
-											producciones se centran en un seguido de temas sobre los cuales el mismo
-											Miyazaki ha confirmado su interés. Por ejemplo, aparece de forma recurrente
-											el tema de crecer o madurar, ya que muchos de sus protagonistas se ven
-											obligados a reflexionar o luchar contra las situaciones en las que se
-											encuentran viéndose obligados a trabajar o a lidiar con responsabilidades de
-											gran peso.
+											It is clearly visible how the studios films tend to revolve around a very
+											specific aesthetic and theme. Apart from its drawing aesthetics with the use
+											of lively and animated colors; It is detected how most of the productions
+											focus on a series of topics on which Miyazaki himself has confirmed his
+											interest. For example, the theme of growing up or maturing appears
+											recurrently, since many of its protagonists are forced to reflect or fight
+											against the situations in which they find themselves being forced to work or
+											deal with heavy responsibilities.
 										</strong>
 									</Card.Text>
 								</Card.Body>
@@ -75,12 +74,6 @@ export const DescriptionPlaces = () => {
 							</tr>
 						</tbody>
 					</Table>
-				</div>
-				<div>
-					<InputGroup className="col text-center w-50">
-						<InputGroup.Prepend />
-						<FormControl as="textarea" aria-label="With textarea" placeholder="Add some comments" />
-					</InputGroup>
 				</div>
 				<div className="col text-center mt-5">
 					<Link to="/places/home">
