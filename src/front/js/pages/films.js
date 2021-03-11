@@ -21,18 +21,10 @@ export const Films = props => {
 										src="https://cdn.themedizine.com/2020/08/studi-gibli-mejores-peliculas.jpg"
 									/>
 								</Link>
-
-								{/* <Card.Body>
-									<Card.Title className="text-center">{element.title}</Card.Title>
-								</Card.Body> */}
-
 								<Card.Footer>
 									<ButtonToolbar
 										className="justify-content-between"
 										aria-label="Toolbar with Button groups">
-										{/* <Link to={`/descriptionFilms/${index}`}>
-											<Button variant="primary">Learn More</Button>
-										</Link>  */}
 										<Card.Text>
 											<tr>
 												<td>
