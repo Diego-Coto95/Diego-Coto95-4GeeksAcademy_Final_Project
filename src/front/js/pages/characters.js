@@ -1,43 +1,35 @@
 import React, { useState, useContext } from "react";
-import { Card, Button, Col, ButtonToolbar, Container } from "react-bootstrap";
+import { Card, Container, Button, Row, Col, ButtonToolbar } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "../../styles/index.scss";
 import { Context } from "../store/appContext";
 
 export const Characters = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container  text-center" style={{ overflowX: "scroll-down", width: "1100px", height: "480px" }}>
-			<div className="container d-flex flex-wrap">
+		<Container className="container" fluid>
+			<Row>
 				{props.data.map((people, index) => {
 					return (
-						<Col md={4} className="mt-1 mb-1" key={index}>
+						<Col md={4} className="mt-2 mb-1" key={index}>
 							<Card>
-								<Card.Img
-									height="300px"
-									variant="top"
-									src="https://2.bp.blogspot.com/-OEI2_u2jVMg/U6NSJeEybNI/AAAAAAAA6f4/IDxjjg98MbI/s1600/cartel+1.jpg"
-								/>
-								<Card.Body>
-									<Card.Title className="text-center">{people.name}</Card.Title>
-									<Card.Text>
-										<tr>
-											<td>Genero: {people.gender} </td>
-										</tr>
-										<tr>
-											<td>Age: {people.age} </td>
-										</tr>
-									</Card.Text>
-								</Card.Body>
+								<Link to={`/descriptionCharacters/${index}`}>
+									<Card.Img variant="top" src="https://pbs.twimg.com/media/EUigTQfWoAwahM_.jpg" />
+								</Link>
 								<Card.Footer>
 									<ButtonToolbar
 										className="justify-content-between"
 										aria-label="Toolbar with Button groups">
-										<Link to={`/descriptionCharacters/${index}`}>
-											<Button variant="primary">Learn More</Button>
-										</Link>
-										<Link onClick={() => actions.addFavorite(people.name, "people")}>
+										<Card.Text>
+											<tr>
+												<td>
+													<strong>Name: {people.name} </strong>
+												</td>
+											</tr>
+										</Card.Text>
+										<Link onClick={() => actions.addFavorite(element.name, "people")}>
 											<Button variant="outline-warning">
 												<i className="far fa-heart" />
 											</Button>
@@ -48,11 +40,11 @@ export const Characters = props => {
 						</Col>
 					);
 				})}
-			</div>
-		</div>
+			</Row>
+		</Container>
 	);
 };
 
 Characters.propTypes = {
-	data: PropTypes.any
+	data: PropTypes.string
 };
