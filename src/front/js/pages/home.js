@@ -8,7 +8,7 @@ import { CardDeck, Card, Container, Jumbotron, Button } from "react-bootstrap";
 
 const kiki = "Kiki's Delivery Service";
 const jumboDescription =
-	"Ghibli's films always have beautiful locations, you can noticed the art in every single frame.";
+	"Ghibli's films always have beautiful locations, you can notice the art in every single frame.";
 
 export const Logo = () => {
 	return <img src="https://www.closinglogos.com/images/e/eb/00d846981287934f316871d37f713733.jpeg" />;
@@ -69,30 +69,45 @@ export const CharactersHome = () => {
 			</h1>
 			<CardDeck>
 				<Card>
-					<Card.Img
-						variant="top"
-						src="https://i.pinimg.com/736x/30/58/67/30586724bbe6fec680680681c7998f20.jpg"
-					/>
+					<Link to="/characters/home">
+						<Card.Img
+							variant="top"
+							src="https://i.pinimg.com/736x/30/58/67/30586724bbe6fec680680681c7998f20.jpg"
+						/>
+					</Link>
+
 					<Card.Body>
-						<Card.Title className="text-center">San</Card.Title>
+						<Card.Title className="text-center">
+							<strong>San</strong>
+						</Card.Title>
 					</Card.Body>
 				</Card>
 				<Card>
-					<Card.Img
-						variant="top"
-						src="https://pbs.twimg.com/profile_images/947361744694988800/0HqUioB8_400x400.jpg"
-					/>
+					<Link to="/characters/home">
+						<Card.Img
+							variant="top"
+							src="https://pbs.twimg.com/profile_images/947361744694988800/0HqUioB8_400x400.jpg"
+						/>
+					</Link>
+
 					<Card.Body>
-						<Card.Title className="text-center">Calcifer</Card.Title>
+						<Card.Title className="text-center">
+							<strong>Calcifer</strong>
+						</Card.Title>
 					</Card.Body>
 				</Card>
 				<Card>
-					<Card.Img
-						variant="top"
-						src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mi-vecino-totoro-taquilla-china-2-1545059767.jpg?crop=0.541xw:1.00xh;0.262xw,0&resize=640:*"
-					/>
+					<Link to="/characters/home">
+						<Card.Img
+							variant="top"
+							src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mi-vecino-totoro-taquilla-china-2-1545059767.jpg?crop=0.541xw:1.00xh;0.262xw,0&resize=640:*"
+						/>
+					</Link>
+
 					<Card.Body>
-						<Card.Title className="text-center">Totoro</Card.Title>
+						<Card.Title className="text-center">
+							<strong>Totoro</strong>
+						</Card.Title>
 					</Card.Body>
 				</Card>
 			</CardDeck>
@@ -102,15 +117,19 @@ export const CharactersHome = () => {
 
 export const PeopleHome = () => {
 	return (
-		<Jumbotron>
-			<h1>Locations</h1>
-			<p>{jumboDescription}</p>
-			<img src="https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2020/01/22122627/Hassan-Rashid-on-Youtube-e1579674659229-1024x545.jpg" />
-			<p>
-				<Button className="mt-3" variant="primary">
-					Learn more
-				</Button>
-			</p>
-		</Jumbotron>
+		<div className="text-center">
+			<Jumbotron>
+				<h1>Locations</h1>
+				<p>{jumboDescription}</p>
+				<img src="https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2020/01/22122627/Hassan-Rashid-on-Youtube-e1579674659229-1024x545.jpg" />
+				<p>
+					<Link to="/places/home">
+						<Button className="mt-3" variant="primary">
+							Learn more
+						</Button>
+					</Link>
+				</p>
+			</Jumbotron>
+		</div>
 	);
 };
