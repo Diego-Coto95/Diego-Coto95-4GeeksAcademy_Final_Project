@@ -21,11 +21,19 @@ export const Menu = () => {
 					</Nav.Link>
 
 					<NavDropdown title="Menu" id="basic-nav-dropdown" className="mt-2">
-						<NavDropdown.Item href="/films/home">Films</NavDropdown.Item>
-						<NavDropdown.Item href="/characters/home">Characters</NavDropdown.Item>
-						<NavDropdown.Item href="/places/home">Locations</NavDropdown.Item>
+						<NavDropdown.Item href="/films/home">
+							Films <img src="https://img.icons8.com/pastel-glyph/22/000000/cinema-.png" />
+						</NavDropdown.Item>
+						<NavDropdown.Item href="/characters/home">
+							Characters <img src="https://img.icons8.com/color/22/000000/bmo.png" />
+						</NavDropdown.Item>
+						<NavDropdown.Item href="/places/home">
+							Locations <img src="https://img.icons8.com/color/22/000000/taj-mahal.png" />
+						</NavDropdown.Item>
 
-						<NavDropdown.Item href="#action/3.4">About</NavDropdown.Item>
+						<NavDropdown.Item href="#action/3.4">
+							About <img src="https://img.icons8.com/color/22/000000/info--v1.png" />
+						</NavDropdown.Item>
 					</NavDropdown>
 				</Nav>
 				<Form inline>
