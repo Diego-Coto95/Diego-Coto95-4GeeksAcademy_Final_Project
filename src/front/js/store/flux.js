@@ -4,12 +4,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//se almacena la data que viene de la API
 			films: [],
 			characteres: [],
-			locations: []
+			locations: [],
+			boolean: false
 		},
 		actions: {
+			//Sale y cierra el token creado
+			logout: () => {
+				setStore({ boolean: false });
+			},
 			//POST del registro
 			validateRegister: async (name, email, password) => {
-				const url = "https://3001-tomato-trout-4lbu1yev.ws-us03.gitpod.io/api/register";
+				const url = "https://3001-apricot-wolf-6ddi7gtd.ws-us03.gitpod.io/api/register";
 				const response = await fetch(url, {
 					method: "POST",
 					headers: {
@@ -22,8 +27,46 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				});
 				const info = await response.json(); //Trae la respuesta de lo que me retorna el back end
-				//console.log(info.msg);
-				alert("Registro completado exitosamente!");
+				console.log(info);
+				alert(info.msg);
+			},
+			//POST del Login
+			validateLogin: async (email, password) => {
+				const url = "https://3001-apricot-wolf-6ddi7gtd.ws-us03.gitpod.io/api/login";
+				const response = await fetch(url, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json" //Lo que se va a enviar es json, por eso se pone el header
+					},
+					body: JSON.stringify({
+						email: email,
+						password: password
+					}) //Convierte todo a un String , se envia como stringfy porque en el back end, se recibe como "email", "password"
+				});
+				const body = await response.json();
+				console.log(body);
+				if (body.status) {
+					sessionStorage.setItem("u_token", body.token);
+					sessionStorage.setItem("status", body.status);
+					setStore({ boolean: true });
+				} else {
+					alert(body.msg);
+				}
+			},
+			//Crea el Token
+			validateToken: async () => {
+				const url = "https://3001-apricot-wolf-6ddi7gtd.ws-us03.gitpod.io/api/profile";
+				const response = await fetch(url, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + sessionStorage.getItem("u_token")
+					}
+				});
+				const info = await response.json();
+				//console.log(info);
+				console.log("Success:", info.token);
+				sessionStorage.setItem("u_token", info.token);
 			},
 			//Get de la data Films
 			getFilms: async () => {
