@@ -12,11 +12,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 ## Nos permite manejar tokens por authentication (usuarios) 
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity # se instala con pipenv install Flask-JWT-Extended
 
-
-
 api = Blueprint('api', __name__)
-
-# jwt = JWTManager(api)
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -34,29 +30,6 @@ def get_users():
     users_query = User.query.all() #Query es una consulta # get all the favorites
     result = list(map(lambda x: x.serialize(), users_query)) # map the results and your list of people  inside of the all_people variable
     return jsonify(result), 200 
-
-@api.route('/user/<int:id>', methods=['GET'])
-def get_user_by_id(id):
-    user = User.query.filter_by(id=id).first_or_404()
-    return jsonify(user.serialize()), 200
-
-@api.route('/user', methods=['POST'])
-def add_user():
-    request_body = json.loads(request.data) #Peticion de los datos, que se cargaran en formato json  // json.loads transcribe a lenguaje de python UTF-8
-    if request_body["email"] == None:
-        return "Datos incompletos, favor completar todos los datos!"
-    else:
-        user = User(name= request_body["name"], email= request_body["email"], password= request_body["password"])
-        db.session.add(user)
-        db.session.commit()
-        return "Posteo Exitoso"
-
-@api.route('/user/<int:id>', methods=['DELETE'])
-def del_user_by_id(id):
-    user = User.query.filter_by(id=id).first_or_404()
-    db.session.delete(user)
-    db.session.commit()
-    return("User has been deleted successfully"), 200
 
 
 ################################################### REGISTER ##########################################################
@@ -88,4 +61,47 @@ def register():
         db.session.add(user) # agrga al usuario a la DB
         db.session.commit()
 
-        return jsonify({"success": "Thanks. your register was successfully", "status": "true"}), 200
+        return jsonify({"success": "Thanks. your register was successfully", "status": "true"})
+# ############################################## LOGIN ######################################################
+
+@api.route('/login', methods=['POST'])
+def login():
+    if request.method == 'POST':
+        email = request.json.get("email", None) #Obtengo el email del usuario
+        password = request.json.get("password", None) #Obtengo el pass del usuario
+
+        #Se chequea que el email y el pass hayan sido ingresados
+        if not email:
+            return jsonify({"msg": "Username is required"}), 400
+        if not password:
+            return jsonify({"msg": "Password is required"}), 400
+
+        #Se chequea que el usuario exista
+        user = User.query.filter_by(email=email).first()
+        if not user:
+            return jsonify({"msg": "Username/Password are incorrect"}), 401
+
+        if not check_password_hash(user.password, password):
+            return jsonify({"msg": "Username/Password are incorrect"}), 401
+
+        # crear el token
+        expiracion = datetime.timedelta(days=3)
+        access_token = create_access_token(identity=user.email, expires_delta=expiracion)
+
+        data = {
+            "user": user.serialize(),
+            "token": access_token,
+            "expires": expiracion.total_seconds()*1000,
+            "status": True
+        }
+
+        return jsonify(data), 200
+
+################################### PROFILE ####################################################
+
+@api.route('/profile', methods=['GET'])
+@jwt_required()# token que se ha enviado
+def profile():
+    if request.method == 'GET':
+        token = get_jwt_identity()# Revisa con repecto al token que se le ha enviado
+        return jsonify({"success": "Acceso a espacio privado", "usuario": token}), 200
