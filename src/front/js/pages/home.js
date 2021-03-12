@@ -13,16 +13,6 @@ const totoro =
 	"The film tells the story of a professor's two young daughters (Satsuki and Mei) and their interactions with friendly wood spirits in post-war rural Japan.";
 const calcifer = "Howl's Moving Castle";
 
-const pageTransiton = {
-	int: {
-		opacity: 1
-	},
-	out: {
-		opacity: 0,
-		y: "-100%"
-	}
-};
-
 export const Logo = () => {
 	return (
 		<div className="text-center">
@@ -34,7 +24,7 @@ export const Logo = () => {
 export const Home = () => {
 	return (
 		<div className="mt-2">
-			<motion.div initial="out" animate="in" exit="out" variant={pageTransiton}>
+			<motion.div>
 				<Carousel>
 					<Carousel.Item>
 						<Link to="/films/home">

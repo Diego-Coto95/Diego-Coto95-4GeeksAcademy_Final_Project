@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Form, Nav, NavDropdown, FormControl, Button } from "react-bootstrap";
+import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Dropdown } from "react-bootstrap";
+import { About } from "./about";
 
 export const Menu = () => {
 	const title = "Ghibli's Films";
@@ -21,25 +22,24 @@ export const Menu = () => {
 							</Link>
 						</Nav.Link>
 
-						<NavDropdown
-							style={{ color: "white" }}
-							title="Menu"
-							id="basic-nav-dropdown"
-							className="mt-2 text-white">
-							<NavDropdown.Item href="/films/home">
-								Films <img src="https://img.icons8.com/pastel-glyph/22/000000/cinema-.png" />
-							</NavDropdown.Item>
-							<NavDropdown.Item href="/characters/home">
-								Characters <img src="https://img.icons8.com/color/22/000000/bmo.png" />
-							</NavDropdown.Item>
-							<NavDropdown.Item href="/places/home">
-								Locations <img src="https://img.icons8.com/color/22/000000/taj-mahal.png" />
-							</NavDropdown.Item>
+						<Dropdown>
+							<Dropdown.Toggle className="mt-2" variant="warning" id="dropdown-basic">
+								Menu
+							</Dropdown.Toggle>
 
-							<NavDropdown.Item href="#action/3.4">
-								About <img src="https://img.icons8.com/color/22/000000/info--v1.png" />
-							</NavDropdown.Item>
-						</NavDropdown>
+							<Dropdown.Menu>
+								<Dropdown.Item href="/films/home">
+									Films <img src="https://img.icons8.com/pastel-glyph/22/000000/cinema-.png" />
+								</Dropdown.Item>
+								<Dropdown.Item href="/characters/home">
+									Characters <img src="https://img.icons8.com/color/22/000000/bmo.png" />
+								</Dropdown.Item>
+								<Dropdown.Item href="/places/home">
+									Locations <img src="https://img.icons8.com/color/22/000000/taj-mahal.png" />
+								</Dropdown.Item>
+								<About />
+							</Dropdown.Menu>
+						</Dropdown>
 					</Nav>
 					<Form inline>
 						<Nav.Link href="/login/home" className="text-white">
