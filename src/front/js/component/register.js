@@ -21,7 +21,7 @@ export const Register = () => {
 		if (name === "" || email === "" || pass === "") {
 			alert("Nombre, correo y contraseña son requeridos");
 		} else {
-			console.log(name, email, pass);
+			console.log(name, email);
 			actions.validateRegister(name, email, pass);
 			handleClose();
 		}

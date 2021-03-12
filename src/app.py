@@ -10,22 +10,20 @@ from api.utils import APIException, generate_sitemap
 from api.models import db, User, Comments, Favorites, Img_Movies, Img_Characters, Img_Locations
 from api.routes import api
 from api.admin import setup_admin
-#from models import Person
-
 import datetime
 
 ## Nos permite hacer las encripciones de contraseñas
 from werkzeug.security import generate_password_hash, check_password_hash
 
 ## Nos permite manejar tokens por authentication (usuarios) 
-# from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity # se instala con pipenv install Flask-JWT-Extended
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity # se instala con pipenv install Flask-JWT-Extended
 
 
 ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
 app.url_map.strict_slashes = False
-# jwt = JWTManager(app)
+jwt = JWTManager(app)
 
 # database condiguration
 if os.getenv("DATABASE_URL") is not None:
