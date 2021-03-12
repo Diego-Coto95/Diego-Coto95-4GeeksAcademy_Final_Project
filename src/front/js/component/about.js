@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, ModalBody, ModalFooter, ModalTitle, Image, Dropdown, Table } from "react-bootstrap";
+import { Modal, ModalBody, ModalFooter, ModalTitle, Image, Dropdown, Table, Card } from "react-bootstrap";
 
 export const About = () => {
 	const [show, setShow] = React.useState(false);
@@ -27,7 +27,7 @@ export const About = () => {
 						critical and popular praise and influenced other animation studios. The headquarters are in
 						Tokyo.
 					</p>
-					<Image
+					<Card.Img
 						src="https://oespectadorrabugentoblog.files.wordpress.com/2020/02/studio_ghibli_logo_by_schneefuechsin_d95wnnl-fullview.jpg"
 						width="400"
 					/>
