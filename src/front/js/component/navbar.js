@@ -4,6 +4,7 @@ import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Dropdown } from "r
 import { About } from "./about";
 import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
+import "../../styles/home.scss";
 
 export const Menu = () => {
 	const { actions, store } = useContext(Context);
@@ -47,11 +48,17 @@ export const Menu = () => {
 					</Nav>
 					<Form inline>
 						{store.boolean ? (
-							<Nav.Link href="/login/home" className="text-white" onClick={actions.logout}>
-								Log out
-							</Nav.Link>
+							<>
+								<Nav.Link>
+									<span className="text-white">{sessionStorage.getItem("name")}</span>
+								</Nav.Link>
+
+								<Nav.Link href="/login/home" className="text-white" onClick={actions.logout}>
+									Log out
+								</Nav.Link>
+							</>
 						) : (
-							<Nav.Link href="/login/home" className="text-white">
+							<Nav.Link href="/login/home" className="text-white ">
 								Login
 							</Nav.Link>
 						)}
