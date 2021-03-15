@@ -16,7 +16,7 @@ export const Characters = props => {
 						<Col md={4} className="mt-2 mb-1" key={index}>
 							<Card>
 								<Link to={`/descriptionCharacters/${index}`}>
-									<Card.Img variant="top" src="https://pbs.twimg.com/media/EUigTQfWoAwahM_.jpg" />
+									<Card.Img src="https://pbs.twimg.com/media/EUigTQfWoAwahM_.jpg" />
 								</Link>
 								<Card.Footer>
 									<ButtonToolbar
