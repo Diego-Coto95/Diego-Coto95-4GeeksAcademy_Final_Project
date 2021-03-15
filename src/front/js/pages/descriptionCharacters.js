@@ -39,19 +39,23 @@ export const DescriptionCharacters = () => {
 								</div>
 								<Card.Text>
 									<p>
-										Una aeronave se desliza sobre un mar de nubes, en una noche de luna llena.
-										Muska, un agente secreto del gobierno, acompaña a una joven llamada Sheeta.
-										Repentinamente la nave es atacada por piratas dirigidos por la capitana Dola
-										que, al igual que el gobierno, buscan el secreto de la piedra que Sheeta lleva
-										colgada alrededor de su cuello. En el caos que se origina, Sheeta intenta
-										escapar por la ventana y cae del dirigible, sin embargo, su descenso es frenado
-										por un misterioso poder dentro de la piedra. Sheeta aterriza a salvo en un
-										pequeño pueblo minero, donde es encontrada por un niño llamado Pazu, quien la
-										lleva a su hogar para su mejoría. Al día siguiente, Sheeta recupera el
-										conocimiento y Pazu le cuenta acerca de una misteriosa isla flotante llamada
-										Laputa, la cual puede apreciarse en una fotografía tomada por su fallecido
-										padre. Más adelante, ambos niños son encontrados y perseguidos por los piratas
-										de Dola, y posteriormente por los soldados de Muska.
+										Studio Ghibli has been gently revolutionizing the animation world since 1986,
+										combining an endearing and empathetic worldview with rousing adventure. That was
+										the year of their debut feature, Castle in the Sky, which heralded the superstar
+										team of Hayao Miyazaki and Isao Takahata. (Nausicaa, which we’re including on
+										this list, was made before Ghibli’s founding but has been culturally adopted as
+										part of of filmography.) Miyazaki has been Studio Ghibli’s global champion, and
+										rounded out the rest of the ’80s with My Neighbor Totoro and Kiki’s Delivery
+										Service. And it wasn’t long before producer Takahata wore the director’s hat,
+										crafting the somber Grave of the Fireflies, which played as a double feature
+										with Totoro in Japan. Entering the ’90s, the two Ghibli founders went toe-to-toe
+										with Porco Rosso and Only Yesterday. The latter was by Takahata, establishing
+										him as a more dramatically grounded artist as compared to Miyazaki’s literal
+										flights of fancy. But it is Miyazaki’s fantastical stories that have proven
+										popular internationally, from the ecological war epic Princess Mononoke to the
+										witchcraft and wizardry of Howl’s Moving Castle to the Oscar-winning masterpiece
+										Spirited Away. The Tale of Princess Kaguya was Takahata’s final film before his
+										death in 2018.
 									</p>
 								</Card.Text>
 							</Card.Body>
@@ -63,7 +67,7 @@ export const DescriptionCharacters = () => {
 			<hr className="border border-bottom-0.5" />
 			<div className="text-light">
 				<Table responsive>
-					<thead className="text-dark">
+					<thead className="text-white">
 						<tr>
 							<th>Name</th>
 							<th>Gender</th>
@@ -74,7 +78,7 @@ export const DescriptionCharacters = () => {
 						</tr>
 					</thead>
 					<tbody>
-						<tr className="text-dark">
+						<tr className="text-white">
 							<td>{element.name}</td>
 							<td>{element.gender}</td>
 							<td>{element.age}</td>

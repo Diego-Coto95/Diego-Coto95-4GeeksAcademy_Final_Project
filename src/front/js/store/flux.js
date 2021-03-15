@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//POST del registro
 			validateRegister: async (name, email, password) => {
-				const url = "https://3001-aquamarine-mandrill-b66mlfa4.ws-us03.gitpod.io/api/register";
+				const url = "https://3001-gold-angelfish-rm9g2pl0.ws-us03.gitpod.io/api/register";
 				const response = await fetch(url, {
 					method: "POST",
 					headers: {
@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//POST del Login
 			validateLogin: async (email, password) => {
 				setStore({ boolean: undefined });
-				const url = "https://3001-aquamarine-mandrill-b66mlfa4.ws-us03.gitpod.io/api/login";
+				const url = "https://3001-gold-angelfish-rm9g2pl0.ws-us03.gitpod.io/api/login";
 				const response = await fetch(url, {
 					method: "POST",
 					headers: {
@@ -48,8 +48,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const body = await response.json();
 				console.log(body);
 				if (body.status) {
+					// console.log(body.user);
 					sessionStorage.setItem("u_token", body.token);
 					sessionStorage.setItem("status", body.status);
+					sessionStorage.setItem("name", body.user.name);
 					setStore({ boolean: true });
 				} else {
 					//alert(body.msg);
@@ -59,7 +61,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//Crea el Token
 			validateToken: async () => {
-				const url = "https://3001-aquamarine-mandrill-b66mlfa4.ws-us03.gitpod.io/api/profile";
+				const url = "https://3001-gold-angelfish-rm9g2pl0.ws-us03.gitpod.io/api/profile";
 				const response = await fetch(url, {
 					method: "GET",
 					headers: {
@@ -68,9 +70,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				});
 				const info = await response.json();
-				//console.log(info);
+				//console.log(info.user);
 				console.log("Success:", info.token);
 				sessionStorage.setItem("u_token", info.token);
+				// sessionStorage.setItem("status", info.status); //Lo usamos para identificar si la sesion sigue activa
 			},
 			//Get de la data Films
 			getFilms: async () => {

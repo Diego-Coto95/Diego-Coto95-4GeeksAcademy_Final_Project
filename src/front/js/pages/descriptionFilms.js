@@ -49,7 +49,7 @@ export const DescriptionFilms = () => {
 			<hr className="border border-bottom-0.5" />
 			<div className="text-light">
 				<Table responsive>
-					<thead className="text-dark">
+					<thead className="text-white">
 						<tr>
 							<th>Director</th>
 							<th>Producer</th>
@@ -59,7 +59,7 @@ export const DescriptionFilms = () => {
 						</tr>
 					</thead>
 					<tbody>
-						<tr className="text-dark">
+						<tr className="text-white">
 							<td>{element.director}</td>
 							<td>{element.producer}</td>
 							<td>{element.release_date}</td>
