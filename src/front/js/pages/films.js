@@ -16,10 +16,7 @@ export const Films = props => {
 						<Col md={4} className="mt-2 mb-1" key={index}>
 							<Card>
 								<Link to={`/descriptionFilms/${index}`}>
-									<Card.Img
-										variant="top"
-										src="https://cdn.themedizine.com/2020/08/studi-gibli-mejores-peliculas.jpg"
-									/>
+									<Card.Img src="https://cdn.themedizine.com/2020/08/studi-gibli-mejores-peliculas.jpg" />
 								</Link>
 								<Card.Footer>
 									<ButtonToolbar

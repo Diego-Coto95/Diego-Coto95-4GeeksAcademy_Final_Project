@@ -57,17 +57,17 @@ export const DescriptionPlaces = () => {
 					</Col>
 				</Row>
 				<hr className="border border-bottom-0.5" />
-				<div className="text-dark">
+				<div className="text-white">
 					<Table responsive>
-						<thead className="text-dark">
+						<thead className="text-white">
 							<tr>
-								<th>climate</th>
+								<th>Climate</th>
 								<th>Terrain</th>
 								<th>Surface Water</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr className="text-dark">
+							<tr className="text-white">
 								<td>{element.climate}</td>
 								<td>{element.terrain}</td>
 								<td>{element.surface_water}</td>
