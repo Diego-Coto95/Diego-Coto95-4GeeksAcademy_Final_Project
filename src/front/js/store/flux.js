@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			films: [],
 			characteres: [],
 			locations: [],
+			favorites: [],
 			boolean: false
 		},
 		actions: {
@@ -88,6 +89,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url);
 				const data = await response.json();
 				setStore({ locations: data });
+			},
+			addFavorite: (name, type) => {
+				const store = getStore();
+				let count = 0;
+				store.favorites.map(each => {
+					if (each.name == name) {
+						count = 1;
+					}
+				});
+				if (count == 0) {
+					setStore({
+						favorites: [
+							...store.favorites,
+							{
+								name: name,
+								type: type
+							}
+						]
+					});
+				}
+				console.log(store.favorites);
+			},
+			deleteFavorite: id => {
+				const store = getStore();
+
+				const newFavorites = store.favorites.filter((item, i) => i !== id);
+				setStore({ favorites: newFavorites });
 			}
 		}
 	};

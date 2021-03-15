@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Dropdown } from "react-bootstrap";
 import { About } from "./about";
+import { Favoritesf } from "./favorites";
+import { Favoritesmodal } from "./favoritesmodal";
 
 export const Menu = () => {
 	const title = "Ghibli's Films";
@@ -38,6 +40,7 @@ export const Menu = () => {
 									Locations <img src="https://img.icons8.com/color/22/000000/taj-mahal.png" />
 								</Dropdown.Item>
 								<About />
+								<Favoritesf />
 							</Dropdown.Menu>
 						</Dropdown>
 					</Nav>

@@ -29,7 +29,7 @@ export const Characters = props => {
 												</td>
 											</tr>
 										</Card.Text>
-										<Link onClick={() => actions.addFavorite(element.name, "people")}>
+										<Link onClick={() => actions.addFavorite(people.name, "characters")}>
 											<Button variant="outline-warning">
 												<i className="far fa-heart" />
 											</Button>
