@@ -1,9 +1,13 @@
-import React from "react";
+import React, { Component, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Dropdown } from "react-bootstrap";
 import { About } from "./about";
+import { Context } from "../store/appContext";
+import { Redirect } from "react-router-dom";
 
 export const Menu = () => {
+	const { actions, store } = useContext(Context);
+
 	const title = "Ghibli's Films";
 	return (
 		<div className="mb-1">
@@ -42,9 +46,15 @@ export const Menu = () => {
 						</Dropdown>
 					</Nav>
 					<Form inline>
-						<Nav.Link href="/login/home" className="text-white">
-							Login
-						</Nav.Link>
+						{store.boolean ? (
+							<Nav.Link href="/login/home" className="text-white" onClick={actions.logout}>
+								Log out
+							</Nav.Link>
+						) : (
+							<Nav.Link href="/login/home" className="text-white">
+								Login
+							</Nav.Link>
+						)}
 						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
 						<Button variant="outline-success">Search</Button>
 					</Form>

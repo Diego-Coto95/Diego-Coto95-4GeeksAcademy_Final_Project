@@ -5,16 +5,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			films: [],
 			characteres: [],
 			locations: [],
-			boolean: false
+			boolean: undefined,
+			user: null
 		},
 		actions: {
 			//Sale y cierra el token creado
 			logout: () => {
-				setStore({ boolean: false });
+				setStore({ boolean: undefined });
 			},
 			//POST del registro
 			validateRegister: async (name, email, password) => {
-				const url = "https://3001-apricot-wolf-6ddi7gtd.ws-us03.gitpod.io/api/register";
+				const url = "https://3001-aquamarine-mandrill-b66mlfa4.ws-us03.gitpod.io/api/register";
 				const response = await fetch(url, {
 					method: "POST",
 					headers: {
@@ -32,7 +33,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//POST del Login
 			validateLogin: async (email, password) => {
-				const url = "https://3001-apricot-wolf-6ddi7gtd.ws-us03.gitpod.io/api/login";
+				setStore({ boolean: undefined });
+				const url = "https://3001-aquamarine-mandrill-b66mlfa4.ws-us03.gitpod.io/api/login";
 				const response = await fetch(url, {
 					method: "POST",
 					headers: {
@@ -50,12 +52,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					sessionStorage.setItem("status", body.status);
 					setStore({ boolean: true });
 				} else {
-					alert(body.msg);
+					//alert(body.msg);
+					console.log(body.msg);
+					setStore({ boolean: false });
 				}
 			},
 			//Crea el Token
 			validateToken: async () => {
-				const url = "https://3001-apricot-wolf-6ddi7gtd.ws-us03.gitpod.io/api/profile";
+				const url = "https://3001-aquamarine-mandrill-b66mlfa4.ws-us03.gitpod.io/api/profile";
 				const response = await fetch(url, {
 					method: "GET",
 					headers: {

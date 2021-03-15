@@ -79,7 +79,7 @@
 		"bootstrap": "^4.3.1",
 		"framer-motion": "^3.10.2",
 		"image-js": "^0.31.4",
-		"prop-types": "^15.6.1",
+		"prop-types": "^15.7.2",
 		"react": "^16.8.4",
 		"react-bootstrap": "^1.5.1",
 		"react-dom": "^16.8.4",

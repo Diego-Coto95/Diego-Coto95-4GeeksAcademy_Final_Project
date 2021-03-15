@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Modal, Form, FormControl, Button, Container, Jumbotron, Card } from "react-bootstrap";
+import { Modal, Form, FormControl, Button, Container, Jumbotron, Card, Alert } from "react-bootstrap";
 import { Register } from "./register";
 import { Redirect } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -11,14 +11,18 @@ export const Login = () => {
 	const [pass, setPass] = useState("");
 	const [redirect, setRedirect] = useState(false);
 
+	const [isValid, setIsValid] = useState();
+
 	//**********************************************LOG  IN**********************************************//
 	const handleSubmitLogin = e => {
 		e.preventDefault();
 		if (email === "" || pass === "") {
-			alert("Correo y contraseña son requeridos");
+			//alert("Correo y contraseña son requeridos");
+			setIsValid(false);
 		} else {
 			console.log(email, pass);
 			actions.validateLogin(email, pass);
+			setIsValid(true);
 		}
 	};
 
@@ -51,7 +55,11 @@ export const Login = () => {
 								</Form.Group>
 
 								<div className="text-center">
-									<Button variant="primary" type="submit" onClick={e => handleSubmitLogin(e)}>
+									<Button
+										variant="primary"
+										type="submit"
+										onClick={e => handleSubmitLogin(e)}
+										onChange={e => setValue(e.target.value)}>
 										Log in
 									</Button>
 								</div>
@@ -63,9 +71,15 @@ export const Login = () => {
 						</Container>
 					</div>
 				</Card.Body>
-				<Card.Footer className="text-muted">
-					<strong>Welcome!</strong>
-				</Card.Footer>
+				{store.boolean != undefined && (
+					<Card.Footer className="text-muted">
+						{store.boolean ? (
+							<Alert variant="success">Welcome!</Alert>
+						) : (
+							<Alert variant="danger">Oops! Username/Password are incorrect. Try again!</Alert>
+						)}
+					</Card.Footer>
+				)}
 			</Card>
 		</Container>
 	);
