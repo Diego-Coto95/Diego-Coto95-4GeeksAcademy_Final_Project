@@ -4,6 +4,7 @@ import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Dropdown } from "r
 import { About } from "./about";
 import { Favoritesf } from "./favorites";
 import { Favoritesmodal } from "./favoritesmodal";
+import { Context } from "../store/appContext";
 
 export const Menu = () => {
 	const { actions, store } = useContext(Context);
