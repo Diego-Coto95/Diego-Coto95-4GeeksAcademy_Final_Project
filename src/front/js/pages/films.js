@@ -7,6 +7,22 @@ import { Context } from "../store/appContext";
 
 export const Films = props => {
 	const { store, actions } = useContext(Context);
+	let [black, setBlack] = useState("far fa-heart");
+
+	let blackColor = element => {
+		console.log(element);
+		if (black == "far fa-heart") {
+			setBlack("fas fa-heart");
+		} else {
+			setBlack("far fa-heart");
+		}
+	};
+
+	// handleClick() {
+	// 	this.setState(function(prevState) {
+	// 		return {isToggleOn: !prevState.isToggleOn};
+	// 	});
+	// }
 
 	return (
 		<Container className="container" fluid>
@@ -29,9 +45,15 @@ export const Films = props => {
 												</td>
 											</tr>
 										</Card.Text>
-										<Link onClick={() => actions.addFavorite(element.title, "films")}>
+										<Link
+											onClick={() => {
+												blackColor(element.title);
+												actions.addFavorite(element.title, "films");
+											}}>
 											<Button variant="outline-warning">
-												<i className="far fa-heart" />
+												{/* {this.state.isToggleOn ? <i className="far fa-heart" id={black} /> : <i class="fas fa-heart"></i>}
+                                                <i className="far fa-heart" id={black} /> */}
+												<i className={black} />
 											</Button>
 										</Link>
 									</ButtonToolbar>

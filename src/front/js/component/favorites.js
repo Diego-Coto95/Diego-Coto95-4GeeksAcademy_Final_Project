@@ -20,7 +20,7 @@ export const Favoritesf = () => {
 
 				<Modal.Body>
 					{store.favorites.length == 0 ? (
-						<Dropdown.Item>Empty</Dropdown.Item>
+						<Dropdown.Item>Empty {localStorage.getItem("name")}</Dropdown.Item>
 					) : (
 						store.favorites.map((favorite, i) => {
 							return (
@@ -57,37 +57,3 @@ export const Favoritesf = () => {
 		</>
 	);
 };
-
-// <div className="text-center">
-// 	<DropdownButton drop={"right"} variant="Danger" title={"Favorites " + store.favorites.length}>
-// 		{store.favorites.length == 0 ? (
-// 			<Dropdown.Item>Empty</Dropdown.Item>
-// 		) : (
-// 			store.favorites.map((favorite, i) => {
-// 				return (
-// 					<Dropdown.Item eventKey={i} key={i} onClick={() => actions.deleteFavorite(i)}>
-// 						{favorite.type == "films" ? (
-// 							<div>
-// 								<i className="bi bi-camera-reels">
-// 									&nbsp;
-// 									{favorite.name}
-// 								</i>
-// 								&nbsp;&nbsp;&nbsp;
-// 								<i className="far fa-trash-alt" />
-// 							</div>
-// 						) : (
-// 							<div>
-// 								<i>
-// 									&nbsp;
-// 									{favorite.name}
-// 								</i>
-// 								&nbsp;&nbsp;&nbsp;
-// 								<i className="far fa-trash-alt" />
-// 							</div>
-// 						)}
-// 					</Dropdown.Item>
-// 				);
-// 			})
-// 		)}
-// 	</DropdownButton>
-// </div>
