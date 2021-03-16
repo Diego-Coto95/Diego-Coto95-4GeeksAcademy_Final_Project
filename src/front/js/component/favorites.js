@@ -24,9 +24,13 @@ export const Favoritesf = () => {
 					) : (
 						store.favorites.map((favorite, i) => {
 							return (
-								<Dropdown.Item eventKey={i} key={i} onClick={() => actions.deleteFavorite(i)}>
+								<Dropdown.Item
+									eventKey={i}
+									key={i}
+									onClick={() => actions.deleteFavorite(i)}
+									className="text-dark">
 									{favorite.type == "films" ? (
-										<div className="text-white text-center">
+										<div className="text-center">
 											<i className="bi bi-camera-reels">
 												&nbsp;
 												{favorite.name}
