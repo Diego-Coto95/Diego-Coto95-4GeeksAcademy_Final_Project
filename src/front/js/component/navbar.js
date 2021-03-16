@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Dropdown } from "react-bootstrap";
 import { About } from "./about";
 import { Favoritesf } from "./favorites";
-import { Favoritesmodal } from "./favoritesmodal";
 import { Context } from "../store/appContext";
 
 export const Menu = () => {
@@ -33,17 +32,24 @@ export const Menu = () => {
 							</Dropdown.Toggle>
 
 							<Dropdown.Menu>
-								<Dropdown.Item href="/films/home">
-									Films <img src="https://img.icons8.com/pastel-glyph/22/000000/cinema-.png" />
+								<Dropdown.Item>
+									<Link to="/films/home">
+										Films <img src="https://img.icons8.com/pastel-glyph/22/000000/cinema-.png" />
+									</Link>
 								</Dropdown.Item>
-								<Dropdown.Item href="/characters/home">
-									Characters <img src="https://img.icons8.com/color/22/000000/bmo.png" />
+								<Dropdown.Item>
+									<Link to="/characters/home">
+										Characters <img src="https://img.icons8.com/color/22/000000/bmo.png" />
+									</Link>
 								</Dropdown.Item>
-								<Dropdown.Item href="/places/home">
-									Locations <img src="https://img.icons8.com/color/22/000000/taj-mahal.png" />
+								<Dropdown.Item>
+									<Link to="/places/home">
+										Locations <img src="https://img.icons8.com/color/22/000000/taj-mahal.png" />
+									</Link>
 								</Dropdown.Item>
+								{store.boolean ? <Favoritesf /> : ""}
+								{/* <Favoritesf /> */}
 								<About />
-								<Favoritesf />
 							</Dropdown.Menu>
 						</Dropdown>
 					</Nav>
@@ -51,7 +57,7 @@ export const Menu = () => {
 						{store.boolean ? (
 							<>
 								<Nav.Link>
-									<span className="text-white">{sessionStorage.getItem("name")}</span>
+									<span className="text-white">{localStorage.getItem("name")}</span>
 								</Nav.Link>
 
 								<Nav.Link href="/login/home" className="text-white" onClick={actions.logout}>
