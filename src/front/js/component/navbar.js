@@ -4,6 +4,7 @@ import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Dropdown } from "r
 import { About } from "./about";
 import { Favoritesf } from "./favorites";
 import { Context } from "../store/appContext";
+import "../../styles/home.scss";
 
 export const Menu = () => {
 	const { actions, store } = useContext(Context);
@@ -34,7 +35,8 @@ export const Menu = () => {
 							<Dropdown.Menu>
 								<Dropdown.Item>
 									<Link to="/films/home">
-										Films <img src="https://img.icons8.com/pastel-glyph/22/000000/cinema-.png" />
+										Films
+										<img src="https://img.icons8.com/pastel-glyph/22/000000/cinema-.png" />
 									</Link>
 								</Dropdown.Item>
 								<Dropdown.Item>

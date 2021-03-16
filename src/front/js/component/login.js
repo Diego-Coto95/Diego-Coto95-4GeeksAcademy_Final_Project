@@ -4,6 +4,7 @@ import { Modal, Form, FormControl, Button, Container, Jumbotron, Card, Alert } f
 import { Register } from "./register";
 import { Redirect } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Forgot } from "./recupass";
 
 export const Login = () => {
 	const { actions, store } = useContext(Context);
@@ -65,6 +66,7 @@ export const Login = () => {
 							{store.boolean ? <Redirect to="/" /> : ""}
 						</Container>
 					</div>
+					<Forgot />
 				</Card.Body>
 				{store.boolean != undefined && (
 					<Card.Footer className="text-muted">
