@@ -105,3 +105,20 @@ def profile():
     if request.method == 'GET':
         token = get_jwt_identity()# Revisa con repecto al token que se le ha enviado
         return jsonify({"success": "Acceso a espacio privado", "usuario": token}), 200
+
+# ############################################## Favorites ######################################################
+
+@api.route('/favorites', methods=['POST'])
+@jwt_required()# token que se ha enviado
+def fav():
+    if request.method == 'POST':
+        name = request.json.get("name", None) #Obtengo el name del usuario
+        typeFav = request.json.get("typeFav", None) #Obtengo el name del usuario
+
+        email = get_jwt_identity()# Revisa con repecto al token que se le ha enviado
+        user = User.query.filter_by(email=email)
+        favorite = Favorites(name=name,typeFav=typeFav, user_id=user.id)
+        db.session.add(favorite) # agrga al usuario a la DB
+        db.session.commit()
+
+        return jsonify(favorite), 200

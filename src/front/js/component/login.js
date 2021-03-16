@@ -9,20 +9,15 @@ export const Login = () => {
 	const { actions, store } = useContext(Context);
 	const [email, setEmail] = useState("");
 	const [pass, setPass] = useState("");
-	const [redirect, setRedirect] = useState(false);
-
-	const [isValid, setIsValid] = useState();
 
 	//**********************************************LOG  IN**********************************************//
 	const handleSubmitLogin = e => {
 		e.preventDefault();
 		if (email === "" || pass === "") {
 			//alert("Correo y contraseña son requeridos");
-			setIsValid(false);
 		} else {
 			console.log(email, pass);
 			actions.validateLogin(email, pass);
-			setIsValid(true);
 		}
 	};
 

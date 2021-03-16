@@ -6,16 +6,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characteres: [],
 			locations: [],
 			favorites: [],
-			boolean: false
+			boolean: localStorage.getItem("u_token") ? true : undefined
 		},
 		actions: {
 			//Sale y cierra el token creado
 			logout: () => {
 				setStore({ boolean: undefined });
+				localStorage.clear(); //Borra el localStorage, que contiene mi token y la info
 			},
 			//POST del registro
 			validateRegister: async (name, email, password) => {
-				const url = "https://3001-gold-angelfish-rm9g2pl0.ws-us03.gitpod.io/api/register";
+				const url = process.env.BACKEND_URL + "/api/register";
 				const response = await fetch(url, {
 					method: "POST",
 					headers: {
@@ -34,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//POST del Login
 			validateLogin: async (email, password) => {
 				setStore({ boolean: undefined });
-				const url = "https://3001-gold-angelfish-rm9g2pl0.ws-us03.gitpod.io/api/login";
+				const url = process.env.BACKEND_URL + "/api/login";
 				const response = await fetch(url, {
 					method: "POST",
 					headers: {
@@ -49,9 +50,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(body);
 				if (body.status) {
 					// console.log(body.user);
-					sessionStorage.setItem("u_token", body.token);
-					sessionStorage.setItem("status", body.status);
-					sessionStorage.setItem("name", body.user.name);
+					localStorage.setItem("u_token", body.token);
+					localStorage.setItem("status", body.status);
+					localStorage.setItem("name", body.user.name);
 					setStore({ boolean: true });
 				} else {
 					//alert(body.msg);
@@ -61,7 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//Crea el Token
 			validateToken: async () => {
-				const url = "https://3001-gold-angelfish-rm9g2pl0.ws-us03.gitpod.io/api/profile";
+				const url = process.env.BACKEND_URL + "/api/profile";
 				const response = await fetch(url, {
 					method: "GET",
 					headers: {
@@ -72,9 +73,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const info = await response.json();
 				//console.log(info.user);
 				console.log("Success:", info.token);
-				sessionStorage.setItem("u_token", info.token);
+				localStorage.setItem("u_token", info.token);
 				// sessionStorage.setItem("status", info.status); //Lo usamos para identificar si la sesion sigue activa
 			},
+
+			sendFavorites: async (name, typeFav) => {
+				const url = process.env.BACKEND_URL + "/api/favorites";
+				const response = await fetch(url, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						name: name,
+						typeFav: typeFav
+					})
+				});
+				const info = await response.json(); //Trae la respuesta de lo que me retorna el back end
+				console.log(info);
+				// alert(info.msg);
+			},
+
 			//Get de la data Films
 			getFilms: async () => {
 				const url = "https://ghibliapi.herokuapp.com/films";
@@ -116,6 +135,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 				}
 				console.log(store.favorites);
+				const actions = getActions();
+				actions.sendFavorites(name, type);
 			},
 			deleteFavorite: id => {
 				const store = getStore();
