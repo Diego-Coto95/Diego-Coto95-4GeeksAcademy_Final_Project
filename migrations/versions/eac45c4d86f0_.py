@@ -1,14 +1,8 @@
 """empty message
 
-<<<<<<< HEAD:migrations/versions/e9237dcf8f40_.py
-Revision ID: e9237dcf8f40
+Revision ID: eac45c4d86f0
 Revises: 
-Create Date: 2021-03-16 20:27:31.850379
-=======
-Revision ID: 889fa5cb9ce0
-Revises: 
-Create Date: 2021-03-16 21:19:42.093708
->>>>>>> c22ef8b76ea01859cb2334a2bcd5ba75b50df335:migrations/versions/889fa5cb9ce0_.py
+Create Date: 2021-03-16 23:34:01.375697
 
 """
 from alembic import op
@@ -16,11 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-<<<<<<< HEAD:migrations/versions/e9237dcf8f40_.py
-revision = 'e9237dcf8f40'
-=======
-revision = '889fa5cb9ce0'
->>>>>>> c22ef8b76ea01859cb2334a2bcd5ba75b50df335:migrations/versions/889fa5cb9ce0_.py
+revision = 'eac45c4d86f0'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -50,9 +40,7 @@ def upgrade():
     sa.Column('typeFav', sa.String(length=250), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('name'),
-    sa.UniqueConstraint('typeFav')
+    sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
 
