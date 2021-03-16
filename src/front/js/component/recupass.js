@@ -24,10 +24,10 @@ export const Forgot = () => {
 				<Modal.Body>
 					<Form>
 						<Form.Group controlId="formBasicPassword">
-							<Form.Label>Password</Form.Label>
+							<Form.Label>New Password</Form.Label>
 							<Form.Control
 								type="password"
-								placeholder="Password"
+								placeholder="New Password"
 								onChange={e => setPass1(e.target.value)}
 							/>
 						</Form.Group>
