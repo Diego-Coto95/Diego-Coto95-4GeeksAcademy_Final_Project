@@ -6,6 +6,9 @@ import "../../styles/home.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import { Card, Jumbotron, Button } from "react-bootstrap";
 import { CardPeople } from "../component/card";
+import imageto from "/images/totoro.jpg";
+import imageki from "/images/kiki.jpg";
+import imageA from "/images/amapolas.jpg";
 
 import PropTypes from "prop-types";
 
@@ -32,29 +35,17 @@ export const Home = () => {
 					<Carousel>
 						<Carousel.Item>
 							<Link to="/films/home">
-								<img
-									className="kiki d-block w-100"
-									src="https://wallpapercave.com/wp/wp4603979.jpg"
-									alt="First slide"
-								/>
+								<img className="kiki d-block w-100" src={imageto} alt="First slide" />
 							</Link>
 						</Carousel.Item>
 						<Carousel.Item>
 							<Link to="films/home">
-								<img
-									className="kiki d-block w-100"
-									src="https://images3.alphacoders.com/245/thumb-1920-245067.jpg"
-									alt="Second slide"
-								/>
+								<img className="kiki d-block w-100" src={imageki} alt="Second slide" />
 							</Link>
 						</Carousel.Item>
 						<Carousel.Item>
 							<Link to="films/home">
-								<img
-									className="kiki d-block w-100"
-									src="https://occ-0-1068-1723.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABcpgYZTMvePfnvJiiRtFLYrxt5PwVrMBHbmG5VYH6YSs8BDwSUSGSU9HqC_OHOYdv4dqeVGtFBCwQ17ODRSfhvBmN54-.jpg?r=fa5"
-									alt="Third slide"
-								/>
+								<img className="kiki d-block w-100" src={imageA} alt="Third slide" />
 							</Link>
 						</Carousel.Item>
 					</Carousel>
