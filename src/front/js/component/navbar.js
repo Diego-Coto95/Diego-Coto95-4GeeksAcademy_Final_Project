@@ -48,7 +48,6 @@ export const Menu = () => {
 									</Link>
 								</Dropdown.Item>
 								{store.boolean ? <Favoritesf /> : ""}
-								{/* <Favoritesf /> */}
 								<About />
 							</Dropdown.Menu>
 						</Dropdown>

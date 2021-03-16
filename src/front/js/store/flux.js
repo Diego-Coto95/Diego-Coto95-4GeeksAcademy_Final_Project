@@ -67,7 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + sessionStorage.getItem("u_token")
+						Authorization: "Bearer " + localStorage.getItem("u_token")
 					}
 				});
 				const info = await response.json();
@@ -82,7 +82,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url, {
 					method: "POST",
 					headers: {
-						"Content-Type": "application/json"
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + localStorage.getItem("u_token")
 					},
 					body: JSON.stringify({
 						name: name,
@@ -93,6 +94,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(info);
 				// alert(info.msg);
 			},
+
+			//Crea el Token
+			// getFavorites: async () => {
+			// 	const url = process.env.BACKEND_URL + "/api/favorites";
+			// 	const response = await fetch(url, {
+			// 		method: "GET",
+			// 		headers: {
+			// 			"Content-Type": "application/json",
+			// 			Authorization: "Bearer " + localStorage.getItem("u_token")
+			// 		}
+			// 	});
+			// 	const info = await response.json();
+			// 	//console.log(info.user);
+			// 	console.log("Success:", info.token);
+			// 	localStorage.setItem("u_token", info.token);
+			// 	// sessionStorage.setItem("status", info.status); //Lo usamos para identificar si la sesion sigue activa
+			// },
 
 			//Get de la data Films
 			getFilms: async () => {
@@ -140,7 +158,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			deleteFavorite: id => {
 				const store = getStore();
-
 				const newFavorites = store.favorites.filter((item, i) => i !== id);
 				setStore({ favorites: newFavorites });
 			}
