@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Dropdown } from "react-bootstrap";
 import { About } from "./about";
@@ -71,10 +71,46 @@ export const Menu = () => {
 							</Nav.Link>
 						)}
 						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
+						<Search />
 						<Button variant="outline-success">Search</Button>
 					</Form>
 				</Navbar.Collapse>
 			</Navbar>
+		</div>
+	);
+};
+
+export const Search = () => {
+	const { actions, store } = useContext(Context);
+	const [search, setSearch] = useState("");
+
+	return (
+		<div className="search">
+			<input
+				type="text"
+				placeholder="Search..."
+				onChange={e => {
+					setSearch(e.target.value);
+				}}
+			/>
+			{store.films
+				.filter(val => {
+					console.log(val);
+					if (search == "") {
+						return val;
+					} else if (val.title.toLowerCase().includes(search.toLowerCase())) {
+						return val;
+					}
+				})
+				.map((val, key) => {
+					return (
+						<div className="look" key={key}>
+							<p>
+								<Link to={`/descriptionFilms/${key}`}>{val.title}</Link>
+							</p>
+						</div>
+					);
+				})}
 		</div>
 	);
 };
