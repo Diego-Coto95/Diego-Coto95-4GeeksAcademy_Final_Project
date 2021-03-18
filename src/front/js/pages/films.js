@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../../styles/index.scss";
 import { Context } from "../store/appContext";
+import { CardFilms } from "../component/cardFilms";
 
 export const Films = props => {
 	const { store, actions } = useContext(Context);
@@ -18,11 +19,15 @@ export const Films = props => {
 		}
 	};
 
-	// handleClick() {
-	// 	this.setState(function(prevState) {
-	// 		return {isToggleOn: !prevState.isToggleOn};
-	// 	});
-	// }
+	const isFavorito = el => {
+		store.favorites.forEach(fav => {
+			if (fav.name === el.title) {
+				return true;
+			}
+		});
+		return false;
+	};
+
 	console.log(store.favorites);
 	return (
 		<div className="container animate__animated animate__fadeInLeftBig">
@@ -31,7 +36,8 @@ export const Films = props => {
 					{props.data.map((element, index) => {
 						return (
 							<Col md={4} className="mt-2 mb-1" key={index}>
-								<Card className="animate__animated animate__rotateIn">
+								<CardFilms element={element} key={index} idx={index} />
+								{/* <Card className="animate__animated animate__rotateIn">
 									<div className="overflow">
 										<Link to={`/descriptionFilms/${index}`}>
 											<Card.Img
@@ -57,15 +63,12 @@ export const Films = props => {
 													actions.addFavorite(element.title, "films");
 												}}>
 												<Button variant="outline-warning">
-													{/* {this.state.isToggleOn ? <i className="far fa-heart" id={black} /> : <i class="fas fa-heart"></i>}
-                                                <i className="far fa-heart" id={black} /> */}
 													<i className="far fa-heart" />
-													{/* <i className={black} /> */}
 												</Button>
 											</Link>
 										</ButtonToolbar>
 									</Card.Footer>
-								</Card>
+								</Card> */}
 							</Col>
 						);
 					})}
@@ -76,5 +79,5 @@ export const Films = props => {
 };
 
 Films.propTypes = {
-	data: PropTypes.string
+	data: PropTypes.array
 };

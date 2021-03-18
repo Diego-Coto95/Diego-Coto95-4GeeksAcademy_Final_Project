@@ -94,9 +94,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const info = await response.json(); //Trae la respuesta de lo que me retorna el back end
 				const actions = getActions();
 				actions.getFavorites();
-				// const favs = getStore().favorites;
-				// const favsArray = favs.concat(name, typeFav);
-				// setStore({ favorites: [...favsArray] });
 			},
 			deleteFavorites: async favID => {
 				const url = process.env.BACKEND_URL + "/api/favorites/" + favID;
