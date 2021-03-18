@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			//se almacena la data que viene de la API
+			Asearch: [],
 			films: [],
 			characteres: [],
 			locations: [],
@@ -129,6 +130,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url);
 				const data = await response.json();
 				setStore({ films: data });
+				setStore({ Asearch: data });
 			},
 			//Get de la data people
 			getCha: async () => {
@@ -136,6 +138,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url);
 				const data = await response.json();
 				setStore({ characteres: data });
+				setStore({ Asearch: data });
 			},
 			//Get de la data locations
 			getLocations: async () => {
@@ -143,6 +146,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url);
 				const data = await response.json();
 				setStore({ locations: data });
+				setStore({ Asearch: data });
 			},
 			addFavorite: (name, type) => {
 				const store = getStore();

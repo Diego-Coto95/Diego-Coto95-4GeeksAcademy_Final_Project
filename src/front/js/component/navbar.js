@@ -94,24 +94,25 @@ export const Search = () => {
 					setSearch(e.target.value);
 				}}
 			/>
-			{store.films
-				.filter(val => {
-					console.log(val);
-					if (search == "") {
-						return val;
-					} else if (val.title.toLowerCase().includes(search.toLowerCase())) {
-						return val;
-					}
-				})
-				.map((val, key) => {
-					return (
-						<div className="look" key={key}>
-							<p>
-								<Link to={`/descriptionFilms/${key}`}>{val.title}</Link>
-							</p>
-						</div>
-					);
-				})}
+			{store.Asearch.filter(val => {
+				console.log(val);
+				if (search == "") {
+					return val;
+				} else if (
+					val.title.toLowerCase().includes(search.toLowerCase()) ||
+					val.name.toLowerCase().includes(search.toLocaleLowerCase())
+				) {
+					return val;
+				}
+			}).map((val, key) => {
+				return (
+					<div className="look" key={key}>
+						<p>
+							<Link to={`/descriptionFilms/${key}`}>{val.title}</Link>
+						</p>
+					</div>
+				);
+			})}
 		</div>
 	);
 };
