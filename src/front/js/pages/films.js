@@ -25,13 +25,13 @@ export const Films = props => {
 	// }
 	console.log(store.favorites);
 	return (
-		<div className="animate__animated animate__fadeInDownBig">
+		<div className="container animate__animated animate__fadeInLeftBig">
 			<Container className="container fluid">
 				<Row>
 					{props.data.map((element, index) => {
 						return (
 							<Col md={4} className="mt-2 mb-1" key={index}>
-								<Card>
+								<Card className="animate__animated animate__rotateIn">
 									<div className="overflow">
 										<Link to={`/descriptionFilms/${index}`}>
 											<Card.Img
@@ -53,13 +53,14 @@ export const Films = props => {
 											</Card.Text>
 											<Link
 												onClick={() => {
-													blackColor(element.title);
+													//blackColor(element.title);
 													actions.addFavorite(element.title, "films");
 												}}>
 												<Button variant="outline-warning">
 													{/* {this.state.isToggleOn ? <i className="far fa-heart" id={black} /> : <i class="fas fa-heart"></i>}
                                                 <i className="far fa-heart" id={black} /> */}
-													<i className={black} />
+													<i className="far fa-heart" />
+													{/* <i className={black} /> */}
 												</Button>
 											</Link>
 										</ButtonToolbar>

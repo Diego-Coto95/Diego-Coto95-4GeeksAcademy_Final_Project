@@ -14,7 +14,7 @@ export const Characters = props => {
 				{props.data.map((people, index) => {
 					return (
 						<Col md={4} className="mt-2 mb-1" key={index}>
-							<Card>
+							<Card className="">
 								<div className="overflow">
 									<Link to={`/descriptionCharacters/${index}`}>
 										<Card.Img
