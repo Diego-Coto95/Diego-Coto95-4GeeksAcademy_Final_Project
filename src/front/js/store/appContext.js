@@ -21,6 +21,10 @@ const injectContext = PassedComponent => {
 					})
 			})
 		);
+
+		useEffect(() => {
+			state.actions.getFavorites();
+		}, []);
 		// useEffect(() => {
 		// 	state.actions.validateToken();
 		// 	if (sessionStorage.getItem("status")) {

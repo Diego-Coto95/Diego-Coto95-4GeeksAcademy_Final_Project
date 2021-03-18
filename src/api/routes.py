@@ -117,9 +117,39 @@ def fav():
 
         email = get_jwt_identity()# Revisa con repecto al token que se le ha enviado
         user = User.query.filter_by(email=email).first() #Obtiene el primero
-        favorite = Favorites(name=name,typeFav=typeFav, user_id=user.id)
-        db.session.add(favorite) # agrga al usuario a la DB
-        db.session.commit()
+        allFavs = Favorites.query.filter_by(name=name, user_id=user.id).first()
+        if allFavs != None:
+            return jsonify({"msg": "Favorite already exist"}), 400
+        else:
+            favorite = Favorites(name=name,typeFav=typeFav, user_id=user.id)
+            db.session.add(favorite) # agrga al usuario a la DB
+            db.session.commit()
 
-        return jsonify(favorite.serialize()), 200
+            return jsonify(favorite.serialize()), 200
 
+# ############################################## DELETE Favorites ######################################################
+@api.route("/favorites", methods=["GET"])
+@jwt_required()
+def get_favs():
+
+    user = get_jwt_identity()
+    user_email = User.query.filter_by(email=user).first() #Usuario
+    user_Favorites = Favorites.query.filter_by(user_id=user_email.id).all()
+    favortites_list = list(map(lambda favorites: favorites.serialize(), user_Favorites))
+
+    return jsonify(favortites_list), 200
+
+# ############################################## DELETE Favorites ######################################################
+
+@api.route('/favorites/<int:favID>', methods=['DELETE'])
+@jwt_required()# token que se ha enviado
+def del_fav(favID):
+    
+    email = get_jwt_identity()# Revisa con repecto al token que se le ha enviado
+    user = User.query.filter_by(email=email).first() #Usuario
+    #fav = Favorites.query.get(fid).first()
+    fav_to_delete = Favorites.query.filter_by(user_id=user.id, id= favID).first()
+    db.session.delete(fav_to_delete)
+    db.session.commit()
+
+    return jsonify("Successful removed"), 200

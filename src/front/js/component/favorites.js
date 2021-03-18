@@ -27,7 +27,7 @@ export const Favoritesf = () => {
 								<Dropdown.Item
 									eventKey={i}
 									key={i}
-									onClick={() => actions.deleteFavorite(i)}
+									onClick={() => actions.deleteFavorite(favorite.id)}
 									className="text-dark">
 									{favorite.type == "films" ? (
 										<div className="text-center">
