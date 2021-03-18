@@ -87,6 +87,7 @@ export const Search = () => {
 	return (
 		<div className="search">
 			<input
+				className="rounded mt-4"
 				type="text"
 				placeholder="Search..."
 				onChange={e => {
