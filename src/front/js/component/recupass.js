@@ -24,20 +24,8 @@ export const Forgot = () => {
 				<Modal.Body>
 					<Form>
 						<Form.Group controlId="formBasicPassword">
-							<Form.Label>New Password</Form.Label>
-							<Form.Control
-								type="password"
-								placeholder="New Password"
-								onChange={e => setPass1(e.target.value)}
-							/>
-						</Form.Group>
-						<Form.Group controlId="formBasicPassword">
-							<Form.Label>Confirm Password</Form.Label>
-							<Form.Control
-								type="password"
-								placeholder="Confirm Password"
-								onChange={e => setPass2(e.target.value)}
-							/>
+							<Form.Label>Email</Form.Label>
+							<Form.Control type="text" placeholder="Email..." onChange={e => setPass1(e.target.value)} />
 						</Form.Group>
 
 						<Button variant="primary" type="submit">

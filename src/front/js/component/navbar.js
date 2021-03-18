@@ -12,7 +12,7 @@ export const Menu = () => {
 	const title = "Ghibli's Films";
 	return (
 		<div className="mb-1">
-			<Navbar bg="dark" expand="lg">
+			<Navbar className="Navbar" bg="dark" expand="lg">
 				<Navbar.Brand href="#home">
 					<Link to="/">
 						<img src="https://img.icons8.com/color/48/000000/hayao-miyazaki.png" />
@@ -72,7 +72,6 @@ export const Menu = () => {
 						)}
 
 						<Search />
-						<Button variant="outline-success">Search</Button>
 					</Form>
 				</Navbar.Collapse>
 			</Navbar>
@@ -83,36 +82,45 @@ export const Menu = () => {
 export const Search = () => {
 	const { actions, store } = useContext(Context);
 	const [search, setSearch] = useState("");
+	const [input, setInput] = useState("");
 
 	return (
 		<div className="search">
 			<input
 				className="mt-1 mr-2 shadow-sm bg-body rounded"
 				type="text"
+				value={input}
 				placeholder="Films..."
 				onChange={e => {
 					setSearch(e.target.value);
+					setInput(e.target.value);
 				}}
 			/>
-
-			{store.films
-				.filter(val => {
-					console.log(val);
-					if (search == "") {
-						return val;
-					} else if (val.title.toLowerCase().includes(search.toLowerCase())) {
-						return val;
-					}
-				})
-				.map((val, key) => {
-					return (
-						<div className="look" key={key}>
-							<p>
-								<Link to={`/descriptionFilms/${key}`}>{val.title}</Link>
-							</p>
-						</div>
-					);
-				})}
+			<Button variant="outline-success">Search</Button>
+			{input == "" ? (
+				""
+			) : (
+				<div className="searchDropDown " style={{ zIndex: "1" }}>
+					{store.films
+						.filter(val => {
+							console.log(val);
+							if (search == "") {
+								return val;
+							} else if (val.title.toLowerCase().includes(search.toLowerCase())) {
+								return val;
+							}
+						})
+						.map((val, key) => {
+							return (
+								<div className="look" key={key}>
+									<p>
+										<Link to={`/descriptionFilms/${key}`}>{val.title}</Link>
+									</p>
+								</div>
+							);
+						})}
+				</div>
+			)}
 		</div>
 	);
 };

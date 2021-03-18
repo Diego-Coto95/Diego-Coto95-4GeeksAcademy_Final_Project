@@ -15,7 +15,6 @@ export const Login = () => {
 	const handleSubmitLogin = e => {
 		e.preventDefault();
 		if (email === "" || pass === "") {
-			//alert("Correo y contraseña son requeridos");
 		} else {
 			console.log(email, pass);
 			actions.validateLogin(email, pass);
