@@ -30,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				const info = await response.json(); //Trae la respuesta de lo que me retorna el back end
 				console.log(info);
-				alert(info.msg);
+				alert("Successful registration!");
 			},
 			//POST del Login
 			validateLogin: async (email, password) => {
@@ -49,7 +49,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const body = await response.json();
 				console.log(body);
 				if (body.status) {
-					// console.log(body.user);
 					localStorage.setItem("u_token", body.token);
 					localStorage.setItem("status", body.status);
 					localStorage.setItem("name", body.user.name);
@@ -91,26 +90,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				});
 				const info = await response.json(); //Trae la respuesta de lo que me retorna el back end
-				console.log(info);
-				// alert(info.msg);
+				const actions = getActions();
+				actions.getFavorites();
+				// const favs = getStore().favorites;
+				// const favsArray = favs.concat(name, typeFav);
+				// setStore({ favorites: [...favsArray] });
 			},
-
-			//Crea el Token
-			// getFavorites: async () => {
-			// 	const url = process.env.BACKEND_URL + "/api/favorites";
-			// 	const response = await fetch(url, {
-			// 		method: "GET",
-			// 		headers: {
-			// 			"Content-Type": "application/json",
-			// 			Authorization: "Bearer " + localStorage.getItem("u_token")
-			// 		}
-			// 	});
-			// 	const info = await response.json();
-			// 	//console.log(info.user);
-			// 	console.log("Success:", info.token);
-			// 	localStorage.setItem("u_token", info.token);
-			// 	// sessionStorage.setItem("status", info.status); //Lo usamos para identificar si la sesion sigue activa
-			// },
+			deleteFavorites: async favID => {
+				const url = process.env.BACKEND_URL + "/api/favorites/" + favID;
+				const response = await fetch(url, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + localStorage.getItem("u_token")
+					}
+				});
+				const info = await response.json(); //Trae la respuesta de lo que me retorna el back end
+				const favs = getStore().favorites;
+				const favsArray = favs.filter(item => item.id !== favID);
+				setStore({ favorites: [...favsArray] });
+			},
+			getFavorites: async () => {
+				const url = process.env.BACKEND_URL + "/api/favorites";
+				const response = await fetch(url, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + localStorage.getItem("u_token")
+					}
+				});
+				const info = await response.json(); //Trae la respuesta de lo que me retorna el back end
+				setStore({ favorites: info });
+			},
 
 			//Get de la data Films
 			getFilms: async () => {
@@ -142,24 +153,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				});
 				if (count == 0) {
-					setStore({
-						favorites: [
-							...store.favorites,
-							{
-								name: name,
-								type: type
-							}
-						]
-					});
+					const actions = getActions();
+					actions.getFavorites();
 				}
-				console.log(store.favorites);
 				const actions = getActions();
 				actions.sendFavorites(name, type);
 			},
 			deleteFavorite: id => {
+				//Este id es el id del Favorito
 				const store = getStore();
-				const newFavorites = store.favorites.filter((item, i) => i !== id);
-				setStore({ favorites: newFavorites });
+				const newFavorites = store.favorites.filter(item => item.id !== id); //id del favorito con el id de cada favorito de mi lista
+				setStore({ favorites: [...newFavorites] });
+				const actions = getActions();
+				actions.deleteFavorites(id);
 			}
 		}
 	};

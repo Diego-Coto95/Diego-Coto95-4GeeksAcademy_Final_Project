@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Card, Container, Button, Row, Col, ButtonToolbar } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
@@ -23,7 +23,7 @@ export const Films = props => {
 	// 		return {isToggleOn: !prevState.isToggleOn};
 	// 	});
 	// }
-
+	console.log(store.favorites);
 	return (
 		<Container className="container" fluid>
 			<Row>
@@ -47,7 +47,8 @@ export const Films = props => {
 										</Card.Text>
 										<Link
 											onClick={() => {
-												blackColor(element.title);
+												blackColor(element.element);
+												console.log(element);
 												actions.addFavorite(element.title, "films");
 											}}>
 											<Button variant="outline-warning">
