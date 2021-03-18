@@ -52,6 +52,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					localStorage.setItem("u_token", body.token);
 					localStorage.setItem("status", body.status);
 					localStorage.setItem("name", body.user.name);
+					const actions = getActions();
+					actions.getFavorites();
 					setStore({ boolean: true });
 				} else {
 					//alert(body.msg);

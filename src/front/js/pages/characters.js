@@ -9,15 +9,20 @@ export const Characters = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<Container className="container" fluid>
+		<Container className="container animate__animated animate__fadeInUpBig" fluid>
 			<Row>
 				{props.data.map((people, index) => {
 					return (
 						<Col md={4} className="mt-2 mb-1" key={index}>
-							<Card>
-								<Link to={`/descriptionCharacters/${index}`}>
-									<Card.Img src="https://pbs.twimg.com/media/EUigTQfWoAwahM_.jpg" />
-								</Link>
+							<Card className="">
+								<div className="overflow">
+									<Link to={`/descriptionCharacters/${index}`}>
+										<Card.Img
+											className="card-img-top"
+											src="https://pbs.twimg.com/media/EUigTQfWoAwahM_.jpg"
+										/>
+									</Link>
+								</div>
 								<Card.Footer>
 									<ButtonToolbar
 										className="justify-content-between"
