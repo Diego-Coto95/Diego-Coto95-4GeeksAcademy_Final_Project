@@ -70,7 +70,7 @@ export const Menu = () => {
 								Login
 							</Nav.Link>
 						)}
-						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
+
 						<Search />
 						<Button variant="outline-success">Search</Button>
 					</Form>
@@ -87,32 +87,32 @@ export const Search = () => {
 	return (
 		<div className="search">
 			<input
-				className="rounded mt-4"
+				className="mt-1 mr-2 shadow-sm bg-body rounded"
 				type="text"
-				placeholder="Search..."
+				placeholder="Films..."
 				onChange={e => {
 					setSearch(e.target.value);
 				}}
 			/>
-			{store.Asearch.filter(val => {
-				console.log(val);
-				if (search == "") {
-					return val;
-				} else if (
-					val.title.toLowerCase().includes(search.toLowerCase()) ||
-					val.name.toLowerCase().includes(search.toLocaleLowerCase())
-				) {
-					return val;
-				}
-			}).map((val, key) => {
-				return (
-					<div className="look" key={key}>
-						<p>
-							<Link to={`/descriptionFilms/${key}`}>{val.title}</Link>
-						</p>
-					</div>
-				);
-			})}
+
+			{store.films
+				.filter(val => {
+					console.log(val);
+					if (search == "") {
+						return val;
+					} else if (val.title.toLowerCase().includes(search.toLowerCase())) {
+						return val;
+					}
+				})
+				.map((val, key) => {
+					return (
+						<div className="look" key={key}>
+							<p>
+								<Link to={`/descriptionFilms/${key}`}>{val.title}</Link>
+							</p>
+						</div>
+					);
+				})}
 		</div>
 	);
 };
