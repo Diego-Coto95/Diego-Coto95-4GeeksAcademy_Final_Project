@@ -70,11 +70,6 @@ export const DescriptionFilms = () => {
 					</tbody>
 				</Table>
 			</div>
-			<div>
-				<Form.Group controlId="exampleForm.ControlTextarea1 text-center">
-					<Form.Control as="textarea" rows={4} placeholder="Add some comments" />
-				</Form.Group>
-			</div>
 			<div className="col text-center mt-5">
 				<Link to="/films/home">
 					<button className="btn btn-primary">Back Films</button>

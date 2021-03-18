@@ -1,0 +1,20 @@
+.card:hover {
+    box-shadow: 5px 10px 20px 1px rgb(255, 255, 0.2) !important;
+    transition: all 0.7s linear;
+}
+
+.card-img-top:hover {
+    transform: scale(1.8);
+}
+
+.card-img-top {
+    transition: all 0.7s ease-in-out;
+}
+
+.text { text-shadow: 0 0 3px #FF0000, 0 0 5px rgb(255, 255, 255);
+    font-family: 'Noto Serif', serif;
+}
+
+.Card-Img {
+    transform: scale(1.8);
+}
