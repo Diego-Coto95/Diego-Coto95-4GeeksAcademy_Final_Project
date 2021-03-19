@@ -37,38 +37,6 @@ export const Films = props => {
 						return (
 							<Col md={4} className="mt-2 mb-1" key={index}>
 								<CardFilms element={element} key={index} idx={index} />
-								{/* <Card className="animate__animated animate__rotateIn">
-									<div className="overflow">
-										<Link to={`/descriptionFilms/${index}`}>
-											<Card.Img
-												className="card-img-top"
-												src="https://cdn.themedizine.com/2020/08/studi-gibli-mejores-peliculas.jpg"
-											/>
-										</Link>
-									</div>
-									<Card.Footer>
-										<ButtonToolbar
-											className="justify-content-between"
-											aria-label="Toolbar with Button groups">
-											<Card.Text>
-												<tr>
-													<td>
-														<strong>Title: {element.title} </strong>
-													</td>
-												</tr>
-											</Card.Text>
-											<Link
-												onClick={() => {
-													//blackColor(element.title);
-													actions.addFavorite(element.title, "films");
-												}}>
-												<Button variant="outline-warning">
-													<i className="far fa-heart" />
-												</Button>
-											</Link>
-										</ButtonToolbar>
-									</Card.Footer>
-								</Card> */}
 							</Col>
 						);
 					})}
