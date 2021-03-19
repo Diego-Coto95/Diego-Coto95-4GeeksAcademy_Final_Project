@@ -114,7 +114,13 @@ export const Search = () => {
 							return (
 								<div className="look" key={key}>
 									<p>
-										<Link to={`/descriptionFilms/${key}`} onChange={e => setInput("")}>
+										<Link
+											to={`/descriptionFilms/${key}`}
+											onChange={e => setInput(e.target.value)}
+											value={input}
+											onClick={e => {
+												setInput("");
+											}}>
 											{val.title}
 										</Link>
 									</p>
