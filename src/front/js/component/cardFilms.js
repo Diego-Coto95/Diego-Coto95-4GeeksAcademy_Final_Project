@@ -10,15 +10,17 @@ export const CardFilms = props => {
 	let [black, setBlack] = useState("far fa-heart");
 
 	useEffect(() => {
-		store.favorites.forEach(fav => {
-			// console.log(fav.name === props.element.title);
-			window.scrollTo(0, 0);
-			if (fav.name === props.element.title) {
-				console.log("TRUE");
+		window.scrollTo(0, 0);
+		if (store.boolean) {
+			store.favorites.forEach(fav => {
+				// console.log(fav.name === props.element.title);
+				if (fav.name === props.element.title) {
+					console.log("TRUE");
 
-				setBlack("fas fa-heart");
-			}
-		});
+					setBlack("fas fa-heart");
+				}
+			});
+		}
 		// console.log(props.isFav);
 
 		// if (props.isFav) {
