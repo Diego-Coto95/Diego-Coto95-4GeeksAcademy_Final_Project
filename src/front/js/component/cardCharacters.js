@@ -48,15 +48,23 @@ export const CardCharacters = props => {
 							</td>
 						</tr>
 					</Card.Text>
-					<Link
-						onClick={() => {
-							blackColor(props.element.name);
-							actions.addFavorite(props.element.name, "films");
-						}}>
-						<Button variant="outline-warning">
-							<i className={black} />
-						</Button>
-					</Link>
+					{store.boolean ? (
+						<Link
+							onClick={() => {
+								blackColor(props.element.name);
+								actions.addFavorite(props.element.name, "films");
+							}}>
+							<Button variant="outline-warning">
+								<i className={black} />
+							</Button>
+						</Link>
+					) : (
+						<Link to="/login/home">
+							<Button variant="outline-warning">
+								<i className={black} />
+							</Button>
+						</Link>
+					)}
 				</ButtonToolbar>
 			</Card.Footer>
 		</Card>
