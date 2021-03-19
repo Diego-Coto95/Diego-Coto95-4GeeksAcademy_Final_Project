@@ -146,17 +146,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavorite: (name, type) => {
 				const store = getStore();
 				let count = 0;
-				store.favorites.map(each => {
-					if (each.name == name) {
-						count = 1;
+				if (getStore().boolean) {
+					store.favorites.map(each => {
+						if (each.name == name) {
+							count = 1;
+						}
+					});
+					if (count == 0) {
+						const actions = getActions();
+						actions.getFavorites();
 					}
-				});
-				if (count == 0) {
 					const actions = getActions();
-					actions.getFavorites();
+					actions.sendFavorites(name, type);
 				}
-				const actions = getActions();
-				actions.sendFavorites(name, type);
 			},
 			deleteFavorite: id => {
 				//Este id es el id del Favorito

@@ -10,14 +10,16 @@ export const CardCharacters = props => {
 	let [black, setBlack] = useState("far fa-heart");
 
 	useEffect(() => {
-		store.favorites.forEach(fav => {
-			window.scrollTo(0, 0);
-			if (fav.name === props.element.name) {
-				console.log("TRUE");
+		window.scrollTo(0, 0);
+		if (store.boolean) {
+			store.favorites.forEach(fav => {
+				if (fav.name === props.element.name) {
+					console.log("TRUE");
 
-				setBlack("fas fa-heart");
-			}
-		});
+					setBlack("fas fa-heart");
+				}
+			});
+		}
 	}, []);
 
 	let blackColor = element => {
