@@ -16,7 +16,8 @@ export const DescriptionFilms = () => {
 				<Col xs={6} md={5}>
 					<Image
 						className=" w-100 h-100"
-						src="https://www.estrategiaynegocios.net/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=2CX4BTtb882zFMoiCdM1Cs$daE2N3K4ZzOUsqbU5sYsDH3dNuFiyMwkf22RYy36k6FB40xiOfUoExWL3M40tfzssyZqpeG_J0TFo7ZhRaDiHC9oxmioMlYVJD0A$3RbIiibgT65kY_CSDiCiUzvHvODrHApbd6ry6YGl5GGOZrs-&CONTENTTYPE=image/jpeg"
+						//src="https://www.estrategiaynegocios.net/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=2CX4BTtb882zFMoiCdM1Cs$daE2N3K4ZzOUsqbU5sYsDH3dNuFiyMwkf22RYy36k6FB40xiOfUoExWL3M40tfzssyZqpeG_J0TFo7ZhRaDiHC9oxmioMlYVJD0A$3RbIiibgT65kY_CSDiCiUzvHvODrHApbd6ry6YGl5GGOZrs-&CONTENTTYPE=image/jpeg"
+						src="https://i0.wp.com/citacoescinefilas.com.br/wp-content/uploads/2016/11/Hayao-Miyazaki-Destaque-Citacoescinefilas.jpg?resize=835%2C537&ssl=1"
 						style={{
 							width: "100px",
 							height: "100px",

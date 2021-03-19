@@ -23,6 +23,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			// window.scrollTo(0, 0);
 			state.actions.getFavorites();
 		}, []);
 		// useEffect(() => {
