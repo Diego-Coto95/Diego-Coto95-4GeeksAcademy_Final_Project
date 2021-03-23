@@ -1,14 +1,25 @@
 import React from "react";
-import { Modal, Form, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import emailjs from "emailjs-com";
 
 export const Forgot = () => {
 	const [show, setShow] = React.useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
-	const [pass1, setPass1] = React.useState("");
-	const [pass2, setPass2] = React.useState("");
-	console.log(pass1);
-	console.log(pass2);
+
+	function sendEmail(e) {
+		e.preventDefault();
+
+		emailjs.sendForm("service_qdj7r2f", "template_kk54ase", e.target, "user_T61OqAFwdj7RvlgUp71p1").then(
+			result => {
+				console.log(result.text);
+			},
+			error => {
+				console.log(error.text);
+			}
+		);
+		e.target.reset();
+	}
 
 	return (
 		<>
@@ -22,16 +33,14 @@ export const Forgot = () => {
 				</Modal.Header>
 
 				<Modal.Body>
-					<Form>
-						<Form.Group controlId="formBasicPassword">
-							<Form.Label>Email</Form.Label>
-							<Form.Control type="text" placeholder="Email..." onChange={e => setPass1(e.target.value)} />
-						</Form.Group>
-
-						<Button variant="primary" type="submit">
-							Submit
-						</Button>
-					</Form>
+					<form onSubmit={sendEmail}>
+						<div className="col-8 form-group mx-auto">
+							<input className="form-control" type="email" name="email" placeholder="Email Address..." />
+						</div>
+						<div className="col-8 pt-3 mx-auto">
+							<input type="submit" className="btn btn-info" value="Send Message" />
+						</div>
+					</form>
 				</Modal.Body>
 			</Modal>
 		</>
