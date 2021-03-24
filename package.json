@@ -76,11 +76,17 @@
 		]
 	},
 	"dependencies": {
+		"animate.css": "^4.1.1",
 		"bootstrap": "^4.3.1",
-		"prop-types": "^15.6.1",
+		"emailjs-com": "^2.6.4",
+		"framer-motion": "^3.10.2",
+		"image-js": "^0.31.4",
+		"prop-types": "^15.7.2",
 		"react": "^16.8.4",
+		"react-bootstrap": "^1.5.1",
 		"react-dom": "^16.8.4",
 		"react-polyfills": "0.0.1",
-		"react-router-dom": "^5.2.0"
+		"react-router-dom": "^5.2.0",
+		"react-spring": "^8.0.27"
 	}
 }
