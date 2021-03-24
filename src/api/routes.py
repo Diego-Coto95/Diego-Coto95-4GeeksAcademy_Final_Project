@@ -153,3 +153,29 @@ def del_fav(favID):
     db.session.commit()
 
     return jsonify("Successful removed"), 200
+
+# Reset Password
+@api.route("/reset", methods=["POST"])
+def reset_password():
+    if request.method == "POST":
+
+        new_password = request.json["password"]
+        email = request.json["email"]
+        #email = 'Diego@hotmail.com'
+        # Validate
+        if not (new_password):
+            return jsonify({"error": "Invalid parameter"}), 400
+        
+        user = User.query.filter_by(email=email).first()
+
+        if not user:
+            return jsonify({"error": "Invalid parameter"}), 400
+        
+        # Create and set new password
+        new_password_hashed = generate_password_hash(new_password)
+        user.password = new_password_hashed
+        db.session.commit()
+        
+
+
+        return jsonify({"status": True}), 200
