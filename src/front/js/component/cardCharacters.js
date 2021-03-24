@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Card, Container, Button, Row, Col, ButtonToolbar } from "react-bootstrap";
+import { Card, Button, ButtonToolbar } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../../styles/index.scss";
@@ -31,7 +31,6 @@ export const CardCharacters = props => {
 		}
 	};
 
-	console.log(store.favorites);
 	return (
 		<Card className="animate__animated animate__rotateIn">
 			<div className="overflow">

@@ -1,9 +1,7 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { Modal, Form, FormControl, Button, Container, Jumbotron, Card, Alert } from "react-bootstrap";
+import { Form, Button, Container, Card, Alert } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { Forgot } from "./recupass";
 
 export const Recovery = () => {
 	const { actions, store } = useContext(Context);
@@ -11,7 +9,7 @@ export const Recovery = () => {
 	const [pass2, setPass2] = useState("");
 	const [email, setEmail] = useState("");
 
-	//**********************************************LOG  IN**********************************************//
+	//**********************************************RECOVERY**********************************************//
 	const handleSubmitLogin = e => {
 		e.preventDefault();
 		if (email === "" || pass1 === "" || pass2 === "") {
@@ -58,12 +56,10 @@ export const Recovery = () => {
 								</Form.Group>
 
 								<div className="text-center">
-									{/* <Link to="/login/home"> */}
 									<Button variant="primary" type="submit" onClick={e => handleSubmitLogin(e)}>
 										Reset Password
 										{store.validate ? <Redirect to="/login/home" /> : ""}
 									</Button>
-									{/* </Link> */}
 								</div>
 							</Form>
 						</Container>

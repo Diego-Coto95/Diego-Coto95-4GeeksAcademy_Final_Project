@@ -57,7 +57,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					actions.getFavorites();
 					setStore({ boolean: true });
 				} else {
-					//alert(body.msg);
 					console.log(body.msg);
 					setStore({ boolean: false });
 				}
@@ -73,7 +72,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				});
 				const info = await response.json();
-				//console.log(info.user);
 				console.log("Success:", info.token);
 				localStorage.setItem("u_token", info.token);
 				// sessionStorage.setItem("status", info.status); //Lo usamos para identificar si la sesion sigue activa

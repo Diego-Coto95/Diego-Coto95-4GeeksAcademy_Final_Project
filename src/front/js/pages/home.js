@@ -1,9 +1,8 @@
-import React, { useState, useCallback, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
-import { Context } from "../store/appContext";
 import "../../styles/home.scss";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Card, Jumbotron, Button } from "react-bootstrap";
 import { CardPeople } from "../component/card";
 import imageto from "/images/totoro.jpg";
@@ -14,9 +13,6 @@ import PropTypes from "prop-types";
 
 const jumboDescription =
 	"Ghibli's films always have beautiful locations, you can notice the art in every single frame.";
-const totoro =
-	"The film tells the story of a professor's two young daughters (Satsuki and Mei) and their interactions with friendly wood spirits in post-war rural Japan.";
-const calcifer = "Howl's Moving Castle";
 
 export const Logo = () => {
 	return (

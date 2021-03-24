@@ -1,6 +1,6 @@
-import React, { Component, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Form, Nav, NavDropdown, FormControl, Button, Dropdown } from "react-bootstrap";
+import { Navbar, Form, Nav, Button, Dropdown } from "react-bootstrap";
 import { About } from "./about";
 import { Favoritesf } from "./favorites";
 import { Context } from "../store/appContext";

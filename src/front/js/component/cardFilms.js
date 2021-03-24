@@ -21,11 +21,6 @@ export const CardFilms = props => {
 				}
 			});
 		}
-		// console.log(props.isFav);
-
-		// if (props.isFav) {
-		// 	setBlack("fas fa-heart");
-		// }
 	}, []);
 
 	let blackColor = element => {
@@ -37,14 +32,7 @@ export const CardFilms = props => {
 		}
 	};
 
-	console.log(store.favorites);
 	return (
-		// <div className="container animate__animated animate__fadeInLeftBig">
-		// 	<Container className="container fluid">
-		// 		<Row>
-		// 			{props.data.map((element, index) => {
-		// 				return (
-		// 					<Col md={4} className="mt-2 mb-1" key={index}>
 		<Card className="animate__animated animate__rotateIn">
 			<div className="overflow">
 				<Link to={`/descriptionFilms/${props.idx}`}>
@@ -83,17 +71,10 @@ export const CardFilms = props => {
 				</ButtonToolbar>
 			</Card.Footer>
 		</Card>
-		// 					</Col>
-		// 				);
-		// 			})}
-		// 		</Row>
-		// 	</Container>
-		// </div>
 	);
 };
 
 CardFilms.propTypes = {
 	element: PropTypes.object,
 	idx: PropTypes.number
-	// isFav: PropTypes.bool
 };

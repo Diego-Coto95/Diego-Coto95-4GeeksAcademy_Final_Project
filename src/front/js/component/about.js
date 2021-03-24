@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, ModalBody, ModalFooter, ModalTitle, Image, Dropdown, Table, Card } from "react-bootstrap";
+import { Modal, Image, Dropdown, Table, Card } from "react-bootstrap";
 
 export const About = () => {
 	const [show, setShow] = React.useState(false);
