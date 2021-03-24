@@ -12,6 +12,7 @@ import { Places } from "./pages/places";
 import injectContext from "./store/appContext";
 
 import { Menu } from "./component/navbar";
+import { Recovery } from "./component/recoverypass";
 import { Login } from "./component/login";
 import { Footer } from "./component/footer";
 
@@ -82,6 +83,10 @@ const Layout = () => {
 							<Menu />
 							<DescriptionFilms />
 							<Footer />
+						</Route>
+						<Route exact path="/login/recovery">
+							<Menu />
+							<Recovery />
 						</Route>
 
 						<Route>
