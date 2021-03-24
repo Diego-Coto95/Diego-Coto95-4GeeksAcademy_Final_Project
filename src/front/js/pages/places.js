@@ -39,5 +39,5 @@ export const Places = props => {
 };
 
 Places.propTypes = {
-	data: PropTypes.string
+	data: PropTypes.array
 };

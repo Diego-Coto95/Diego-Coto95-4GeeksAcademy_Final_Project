@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characteres: [],
 			locations: [],
 			favorites: [],
-			boolean: localStorage.getItem("u_token") ? true : undefined
+			boolean: localStorage.getItem("u_token") ? true : undefined,
+			validate: undefined
 		},
 		actions: {
 			//Sale y cierra el token creado
@@ -121,7 +122,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const info = await response.json(); //Trae la respuesta de lo que me retorna el back end
 				setStore({ favorites: info });
 			},
-
+			resetPassword: async (email, password) => {
+				const url = process.env.BACKEND_URL + "/api/reset";
+				const response = await fetch(url, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						email: email,
+						password: password
+					})
+				});
+				const info = await response.json(); //Trae la respuesta de lo que me retorna el back end
+				console.log(info);
+				setStore({ validate: info });
+				alert("Your password has changed!");
+			},
 			//Get de la data Films
 			getFilms: async () => {
 				const url = "https://ghibliapi.herokuapp.com/films";
