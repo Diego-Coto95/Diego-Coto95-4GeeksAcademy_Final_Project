@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "../../styles/index.scss";
 import { Link } from "react-router-dom";
-import { Card, Container, Table, CardImg, Button, Image, Col, Row, InputGroup, Form } from "react-bootstrap";
+import { Card, Container, Table, Image, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
@@ -54,8 +54,7 @@ export const DescriptionCharacters = () => {
 										flights of fancy. But it is Miyazaki’s fantastical stories that have proven
 										popular internationally, from the ecological war epic Princess Mononoke to the
 										witchcraft and wizardry of Howl’s Moving Castle to the Oscar-winning masterpiece
-										Spirited Away. The Tale of Princess Kaguya was Takahata’s final film before his
-										death in 2018.
+										Spirited Away.
 									</p>
 								</Card.Text>
 							</Card.Body>

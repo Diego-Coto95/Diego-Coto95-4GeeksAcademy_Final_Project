@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Context } from "./store/appContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -47,6 +47,7 @@ const Layout = () => {
 						<Route exact path="/login/home">
 							<Menu />
 							<Login />
+							<Footer />
 						</Route>
 
 						<Route exact path="/places/home">
@@ -87,6 +88,7 @@ const Layout = () => {
 						<Route exact path="/login/recovery">
 							<Menu />
 							<Recovery />
+							<Footer />
 						</Route>
 
 						<Route>

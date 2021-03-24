@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "../../styles/index.scss";
 import { Link } from "react-router-dom";
-import { Card, Container, Table, CardImg, Button, Image, Col, Row, InputGroup, FormControl } from "react-bootstrap";
+import { Card, Container, Table, Image, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 

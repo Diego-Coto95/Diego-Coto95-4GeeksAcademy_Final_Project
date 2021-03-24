@@ -10,7 +10,6 @@ export const Register = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [pass, setPass] = useState("");
-	const [redirect, setRedirect] = useState(false);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
