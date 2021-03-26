@@ -12,7 +12,7 @@ import imageA from "/images/amapolas.jpg";
 import PropTypes from "prop-types";
 
 const jumboDescription =
-	"Ghibli's films always have beautiful locations, you can notice the art in every single frame.";
+	"Ghibli's films always have beautiful locations, you can notice the art in every single frame. ";
 
 export const Logo = () => {
 	return (
