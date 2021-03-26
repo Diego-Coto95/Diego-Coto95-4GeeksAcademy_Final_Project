@@ -5,29 +5,22 @@ import "../../styles/index.scss";
 import { Context } from "../store/appContext";
 import { Card } from "react-bootstrap";
 import "../../styles/places.scss";
+import image from "/images/irontown.png";
 
 export const Places = props => {
 	return (
-		<div className="container-md mt-2 m-0 vh-95 row justify-content-center align-items-center col-auto flex-column text-center animate__animated animate__backInRight">
-			<h1 className="text text=white">LOCATIONS</h1>
-			<div className="Main d-flex " style={{ overflowX: "scroll", width: "1270px", height: "500px" }}>
+		<div className="container mt-5 animate__animated animate__backInRight">
+			<h1 className="text text=white text-center">LOCATIONS</h1>
+			<div className="row">
 				{props.data.map((element, index) => {
 					return (
-						<Card className="bg-dark text-dark" style={{ minWidth: "30rem", margin: "13px" }} key={index}>
+						<Card className="bg-dark text-dark mt-3" key={index}>
 							<Link text="white" to={`/descriptionPlaces/${index}`}>
 								<div className="overflow">
-									<Card.Img
-										className="card-img-top"
-										height="450px"
-										src="https://i.pinimg.com/originals/bd/c9/3a/bdc93a1a6bd61c55338632be2ad4aa55.jpg"
-										alt="Card image"
-									/>
-
-									<Card.ImgOverlay>
-										<Card.Title className="text text-dark">{element.name}</Card.Title>
-									</Card.ImgOverlay>
+									<Card.Img className="card-img-top" src={image} alt="Card image" />
 								</div>
 							</Link>
+							<Card.Footer className="titleplaces text-light text-center">{element.name}</Card.Footer>
 						</Card>
 					);
 				})}
