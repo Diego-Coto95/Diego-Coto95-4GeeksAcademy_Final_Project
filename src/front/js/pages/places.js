@@ -8,7 +8,7 @@ import "../../styles/places.scss";
 
 export const Places = props => {
 	return (
-		<div className="container mt-5 m-0 vh-95 row justify-content-center align-items-center col-auto flex-column text-center animate__animated animate__backInRight">
+		<div className="container-md mt-2 m-0 vh-95 row justify-content-center align-items-center col-auto flex-column text-center animate__animated animate__backInRight">
 			<h1 className="text text=white">LOCATIONS</h1>
 			<div className="Main d-flex " style={{ overflowX: "scroll", width: "1270px", height: "500px" }}>
 				{props.data.map((element, index) => {

@@ -77,10 +77,10 @@ export const CharactersHome = () => {
 	return (
 		<>
 			<h1 className="title text-white text-center mt-4">Characters</h1>
-			<div className="container d-flex justify-content-center">
+			<div className="container-md d-flex justify-content-center">
 				<div className="row">
 					{card.map(card => (
-						<div className="col-md-4 " key={card.id}>
+						<div className="col-md " key={card.id}>
 							<CardPeople title={card.title} imageURL={card.image} text={card.text} />
 						</div>
 					))}
@@ -92,7 +92,7 @@ export const CharactersHome = () => {
 
 export const PeopleHome = () => {
 	return (
-		<div className="text-center mt-3">
+		<div className="container-fluid text-center mt-3">
 			<Jumbotron className="bg-dark text-light">
 				<h1 className="title">Locations</h1>
 				<p>{jumboDescription}</p>

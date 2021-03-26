@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "../../styles/index.scss";
 import { Link } from "react-router-dom";
-import { Card, Container, Table, Image, Col, Row } from "react-bootstrap";
+import { Card, Table, Image, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
@@ -11,9 +11,9 @@ export const DescriptionFilms = () => {
 	const element = store.films[params.theid];
 
 	return (
-		<Container className="container mt-5" fluid>
-			<Row>
-				<Col xs={6} md={5}>
+		<div className="container mt-5">
+			<div className="row">
+				<div className="col-md">
 					<Image
 						className=" w-100 h-100"
 						src="https://i0.wp.com/citacoescinefilas.com.br/wp-content/uploads/2016/11/Hayao-Miyazaki-Destaque-Citacoescinefilas.jpg?resize=835%2C537&ssl=1"
@@ -24,31 +24,28 @@ export const DescriptionFilms = () => {
 						}}
 						rounded
 					/>
-					;
-				</Col>
-				<Col xs={6} md={4}>
-					<div>
-						<Card border="light" style={{ width: "40rem" }}>
+				</div>
+
+				<div className="col-md mt-4">
+					<Card border="light">
+						<div className="text-center">
+							<Card.Header>
+								<strong>{element.original_title}</strong>
+							</Card.Header>
+						</div>
+						<Card.Body>
 							<div className="text-center">
-								<Card.Header>
-									<strong>{element.original_title}</strong>
-								</Card.Header>
+								<Card.Title>{element.title}</Card.Title>
 							</div>
-							<Card.Body>
-								<div className="text-center">
-									<Card.Title>{element.title}</Card.Title>
-								</div>
-								<Card.Text>
-									<strong>{element.original_title_romanised}</strong>, {element.description}
-								</Card.Text>
-							</Card.Body>
-						</Card>
-						<br />
-					</div>
-				</Col>
-			</Row>
+							<Card.Text>
+								<strong>{element.original_title_romanised}</strong>, {element.description}
+							</Card.Text>
+						</Card.Body>
+					</Card>
+				</div>
+			</div>
 			<hr className="border border-bottom-0.5" />
-			<div className="text-light">
+			<div className="container-md text-light">
 				<Table responsive>
 					<thead className="text-white">
 						<tr>
@@ -70,11 +67,11 @@ export const DescriptionFilms = () => {
 					</tbody>
 				</Table>
 			</div>
-			<div className="col text-center mt-5">
+			<div className="col text-center mt-3">
 				<Link to="/films/home">
 					<button className="btn btn-primary">Back Films</button>
 				</Link>
 			</div>
-		</Container>
+		</div>
 	);
 };
